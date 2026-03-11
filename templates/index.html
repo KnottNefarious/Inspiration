@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Inspiration Engine</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#111;
+color:#eee;
+padding:40px;
+}
+
+input{
+width:300px;
+padding:10px;
+}
+
+button{
+padding:10px;
+}
+
+.result{
+margin-top:30px;
+background:#222;
+padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Inspiration Engine</h1>
+
+<form method="POST">
+
+<input name="subject" placeholder="Enter problem or project">
+
+<button type="submit">Run Engine</button>
+
+</form>
+
+{% if result %}
+
+<div class="result">
+
+<h3>Target</h3>
+{{result.subject}}
+
+<h3>Systems Used</h3>
+<ul>
+{% for s in result.systems %}
+<li>{{s}}</li>
+{% endfor %}
+</ul>
+
+<h3>Mechanisms</h3>
+{{result.mechanisms}}
+
+<h3>Candidate Equation</h3>
+{{result.equation}}
+
+<h3>Suggested Algorithm</h3>
+{{result.algorithm}}
+
+</div>
+
+{% endif %}
+
+</body>
+
+</html>
