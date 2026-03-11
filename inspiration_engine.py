@@ -1,258 +1,54 @@
 import random
-import requests
 from sympy import symbols, Function, Eq, diff
 
-# ------------------------------------------------
-# System Object
-# ------------------------------------------------
-
-class System:
-
-    def __init__(self,name,domain,structures,mechanisms,math_models):
-
-        self.name=name
-        self.domain=domain
-        self.structures=structures
-        self.mechanisms=mechanisms
-        self.math_models=math_models
+from system_database import load_systems, save_systems
+from research_fetcher import fetch_arxiv_systems
 
 
-# ------------------------------------------------
-# Base systems
-# ------------------------------------------------
+# ----------------------------------------
+# Mechanism Matching
+# ----------------------------------------
 
-BASE_SYSTEMS=[
-
-System(
-"Fluid Dynamics",
-"physics",
-["field","flow"],
-["diffusion","feedback","chaos"],
-["navier stokes"]
-),
-
-System(
-"Market Economy",
-"economics",
-["network"],
-["competition","optimization"],
-["game theory"]
-),
-
-System(
-"Neural Networks",
-"computer science",
-["graph"],
-["adaptation","optimization"],
-["gradient descent"]
-),
-
-System(
-"Traffic Networks",
-"transport",
-["network"],
-["diffusion","congestion"],
-["flow models"]
-),
-
-System(
-"Genetic Evolution",
-"biology",
-["population"],
-["selection","mutation"],
-["replicator equations"]
-),
-
-System(
-"Prime Numbers",
-"mathematics",
-["integer distribution"],
-["rarity","filtering"],
-["number theory"]
-)
-
-]
-
-
-# ------------------------------------------------
-# Synthetic systems
-# ------------------------------------------------
-
-PROPERTIES=[
-"adaptive","chaotic","distributed",
-"competitive","cooperative","dynamic"
-]
-
-STRUCTURES=[
-"network","graph","field",
-"hierarchy","cluster","wave"
-]
-
-MECHANISMS=[
-"diffusion","competition","selection",
-"optimization","feedback","oscillation"
-]
-
-
-def generate_synthetic_systems(n=500):
-
-    systems=[]
-
-    for i in range(n):
-
-        systems.append(
-
-            System(
-                f"synthetic_system_{i}",
-                "synthetic",
-                random.sample(STRUCTURES,1),
-                random.sample(MECHANISMS,2),
-                []
-            )
-
-        )
-
-    return systems
-
-
-# ------------------------------------------------
-# Wikipedia systems
-# ------------------------------------------------
-
-def fetch_wikipedia_systems(topic="science"):
-
-    systems=[]
-
-    try:
-
-        url=f"https://en.wikipedia.org/api/rest_v1/page/related/{topic}"
-
-        data=requests.get(url).json()
-
-        for p in data["pages"]:
-
-            name=p["title"]
-
-            systems.append(
-                System(
-                    name,
-                    "wikipedia",
-                    random.sample(STRUCTURES,1),
-                    random.sample(MECHANISMS,2),
-                    []
-                )
-            )
-
-    except:
-        pass
-
-    return systems
-
-
-# ------------------------------------------------
-# OpenAlex research systems
-# ------------------------------------------------
-
-def fetch_openalex_systems():
-
-    systems=[]
-
-    try:
-
-        url="https://api.openalex.org/concepts?per-page=20"
-
-        data=requests.get(url).json()
-
-        for c in data["results"]:
-
-            systems.append(
-                System(
-                    c["display_name"],
-                    "research",
-                    random.sample(STRUCTURES,1),
-                    random.sample(MECHANISMS,2),
-                    []
-                )
-            )
-
-    except:
-        pass
-
-    return systems
-
-
-# ------------------------------------------------
-# arXiv research topics
-# ------------------------------------------------
-
-def fetch_arxiv_systems():
-
-    systems=[]
-
-    try:
-
-        url="http://export.arxiv.org/api/query?search_query=all:system&max_results=20"
-
-        data=requests.get(url).text
-
-        for i in range(20):
-
-            systems.append(
-                System(
-                    f"arxiv_topic_{i}",
-                    "arxiv",
-                    random.sample(STRUCTURES,1),
-                    random.sample(MECHANISMS,2),
-                    []
-                )
-            )
-
-    except:
-        pass
-
-    return systems
-
-
-# ------------------------------------------------
-# Mechanism matching
-# ------------------------------------------------
-
-def match_mechanisms(a,b):
+def match_mechanisms(a, b):
 
     return list(set(a.mechanisms) & set(b.mechanisms))
 
 
-# ------------------------------------------------
-# Equation generation
-# ------------------------------------------------
+# ----------------------------------------
+# Equation Generator
+# ----------------------------------------
 
 def derive_equation(mechanisms):
 
-    t=symbols('t')
-    x=Function('x')(t)
+    t = symbols('t')
+    x = Function('x')(t)
 
     if "diffusion" in mechanisms:
 
-        return Eq(diff(x,t),symbols('D')*diff(x,t,2))
+        return Eq(diff(x, t), symbols('D') * diff(x, t, 2))
 
     if "optimization" in mechanisms:
 
-        return Eq(diff(x,t),-symbols('eta')*symbols('grad_f'))
+        return Eq(diff(x, t), -symbols('eta') * symbols('grad_f'))
 
     if "competition" in mechanisms:
 
-        return Eq(diff(x,t),symbols('a')*x*(1-x))
+        return Eq(diff(x, t), symbols('a') * x * (1 - x))
 
     if "selection" in mechanisms:
 
-        return Eq(diff(x,t),symbols('r')*x)
+        return Eq(diff(x, t), symbols('r') * x)
 
-    return Eq(diff(x,t),symbols('f'))
+    if "feedback" in mechanisms:
+
+        return Eq(diff(x, t), symbols('k') * x)
+
+    return Eq(diff(x, t), symbols('f'))
 
 
-# ------------------------------------------------
-# Algorithm suggestion
-# ------------------------------------------------
+# ----------------------------------------
+# Algorithm Suggestions
+# ----------------------------------------
 
 def suggest_algorithm(mechanisms):
 
@@ -272,99 +68,134 @@ def suggest_algorithm(mechanisms):
 
         return "Evolutionary search algorithm"
 
-    return "General dynamical system solver"
+    if "feedback" in mechanisms:
+
+        return "Control system feedback solver"
+
+    return "Generic dynamical system solver"
 
 
-# ------------------------------------------------
-# Fugue Engine
-# ------------------------------------------------
+# ----------------------------------------
+# Inspiration Engine
+# ----------------------------------------
 
-class FugueEngine:
+class InspirationEngine:
 
     def __init__(self):
 
-        systems=BASE_SYSTEMS
+        self.systems = load_systems()
 
-        systems+=generate_synthetic_systems()
+        print("Loaded systems:", len(self.systems))
 
-        systems+=fetch_wikipedia_systems()
 
-        systems+=fetch_openalex_systems()
+    # ------------------------------------
+    # Learn systems from research papers
+    # ------------------------------------
 
-        systems+=fetch_arxiv_systems()
+    def learn_from_research(self):
 
-        self.systems=systems
+        new_systems = fetch_arxiv_systems()
 
+        print("New systems discovered:", len(new_systems))
+
+        self.systems.extend(new_systems)
+
+        save_systems(self.systems)
+
+
+    # ------------------------------------
+    # Random discovery mode
+    # ------------------------------------
 
     def discover(self):
 
-        a,b=random.sample(self.systems,2)
+        if len(self.systems) < 2:
+            return "Not enough systems in database."
 
-        print("\nSYSTEM A:",a.name)
-        print("SYSTEM B:",b.name)
+        a, b = random.sample(self.systems, 2)
 
-        mechanisms=match_mechanisms(a,b)
+        mechanisms = match_mechanisms(a, b)
 
-        print("\nShared mechanisms:",mechanisms)
+        eq = derive_equation(mechanisms)
 
-        equation=derive_equation(mechanisms)
+        algo = suggest_algorithm(mechanisms)
 
-        print("\nDerived math model:")
+        result = {
+            "systemA": a.name,
+            "systemB": b.name,
+            "mechanisms": mechanisms,
+            "equation": str(eq),
+            "algorithm": algo
+        }
 
-        print(equation)
-
-        algo=suggest_algorithm(mechanisms)
-
-        print("\nSuggested algorithm:")
-
-        print(algo)
+        return result
 
 
-    def solve(self,subject):
+    # ------------------------------------
+    # Target problem solving mode
+    # ------------------------------------
 
-        print("\nTARGET SUBJECT:",subject)
+    def solve(self, subject):
 
-        systems=random.sample(self.systems,4)
+        if len(self.systems) < 4:
+            return {
+                "subject": subject,
+                "systems": [],
+                "mechanisms": [],
+                "equation": "Not enough systems in database",
+                "algorithm": ""
+            }
 
-        mechanisms=[]
+        systems = random.sample(self.systems, 4)
 
-        print("\nSystems used:")
+        mechanisms = []
+
+        system_names = []
 
         for s in systems:
 
-            print("-",s.name)
+            system_names.append(s.name)
 
-            mechanisms+=s.mechanisms
+            mechanisms += s.mechanisms
 
-        mechanisms=list(set(mechanisms))
+        mechanisms = list(set(mechanisms))
 
-        print("\nExtracted mechanisms:",mechanisms)
+        eq = derive_equation(mechanisms)
 
-        equation=derive_equation(mechanisms)
+        algo = suggest_algorithm(mechanisms)
 
-        print("\nCandidate math:")
+        return {
 
-        print(equation)
+            "subject": subject,
 
-        algo=suggest_algorithm(mechanisms)
+            "systems": system_names,
 
-        print("\nPossible algorithm:")
+            "mechanisms": mechanisms,
 
-        print(algo)
+            "equation": str(eq),
+
+            "algorithm": algo
+        }
 
 
-# ------------------------------------------------
-# Run
-# ------------------------------------------------
+# ----------------------------------------
+# Standalone run mode (for testing)
+# ----------------------------------------
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
-    engine=FugueEngine()
+    engine = InspirationEngine()
 
-    print("\n---- RANDOM DISCOVERY ----")
+    engine.learn_from_research()
 
-    engine.discover()
+    result = engine.discover()
 
-    print("\n---- TARGET PROBLEM ----")
+    print("\nDiscovery Mode Result\n")
 
-    engine.solve("python code analysis")
+    print(result)
+
+    result2 = engine.solve("python code analysis")
+
+    print("\nTarget Mode Result\n")
+
+    print(result2)
