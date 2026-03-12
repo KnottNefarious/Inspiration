@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from inspiration_engine import InspirationEngine
+from inspiration_engine_enhanced import InspirationEngine
 
 app = Flask(__name__)
 
@@ -26,4 +26,4 @@ def home():
     return render_template("index.html", result=result)
 
 
-app.run(host="0.0.0.0", port=3000)
+app.run(host="0.0.0.0", port=5000)
