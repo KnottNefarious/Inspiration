@@ -1,1 +1,30 @@
-[]
+[
+{
+"name": "Fluid Dynamics",
+"domain": "physics",
+"structures": ["field","flow"],
+"mechanisms": ["diffusion","feedback","chaos"],
+"math_models": []
+},
+{
+"name": "Market Economy",
+"domain": "economics",
+"structures": ["network"],
+"mechanisms": ["competition","optimization"],
+"math_models": []
+},
+{
+"name": "Neural Network",
+"domain": "computer science",
+"structures": ["graph"],
+"mechanisms": ["adaptation","optimization"],
+"math_models": []
+},
+{
+"name": "Traffic Network",
+"domain": "transport",
+"structures": ["network"],
+"mechanisms": ["diffusion","congestion"],
+"math_models": []
+}
+]

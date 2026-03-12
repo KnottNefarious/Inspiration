@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 engine = InspirationEngine()
 
+
 @app.route("/", methods=["GET","POST"])
 def home():
 
@@ -12,10 +13,17 @@ def home():
 
     if request.method == "POST":
 
-        subject = request.form["subject"]
+        if request.form.get("mode") == "discover":
 
-        result = engine.solve(subject)
+            result = engine.discovery_mode()
+
+        else:
+
+            subject = request.form["subject"]
+
+            result = engine.solve(subject)
 
     return render_template("index.html", result=result)
+
 
 app.run(host="0.0.0.0", port=3000)

@@ -1,0 +1,11 @@
+modules = ["python-3.12", "web"]
+[agent]
+expertMode = true
+
+[nix]
+channel = "stable-25_05"
+packages = ["glibcLocales"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80

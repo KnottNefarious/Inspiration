@@ -1,83 +1,238 @@
 import random
-from sympy import symbols, Function, Eq, diff
+from sympy import symbols, Function, Eq, diff, solve, simplify
 
-from system_database import load_systems, save_systems
-from research_fetcher import fetch_arxiv_systems
-
-
-# ----------------------------------------
-# Mechanism Matching
-# ----------------------------------------
-
-def match_mechanisms(a, b):
-
-    return list(set(a.mechanisms) & set(b.mechanisms))
+from system_database import load_systems
+from mechanism_graph import MECHANISM_GRAPH
 
 
-# ----------------------------------------
-# Equation Generator
-# ----------------------------------------
+# --------------------------------
+# Extract mechanisms from subject
+# --------------------------------
 
-def derive_equation(mechanisms):
+def extract_mechanisms_from_subject(subject):
+
+    subject = subject.lower()
+
+    hints = []
+
+    if "network" in subject:
+        hints.append("diffusion")
+
+    if "learning" in subject or "adaptive" in subject:
+        hints.append("adaptation")
+
+    if "optimize" in subject or "optimization" in subject or "improve" in subject:
+        hints.append("optimization")
+
+    if "competition" in subject or "market" in subject:
+        hints.append("competition")
+
+    if "evolution" in subject:
+        hints.append("selection")
+
+    if "spread" in subject or "propagation" in subject:
+        hints.append("diffusion")
+
+    if "control" in subject:
+        hints.append("feedback")
+
+    return list(set(hints))
+
+
+# --------------------------------
+# Find systems with those mechanisms
+# --------------------------------
+
+def find_relevant_systems(systems, mechanism_hints):
+
+    relevant = []
+
+    for s in systems:
+
+        if any(m in s.mechanisms for m in mechanism_hints):
+            relevant.append(s)
+
+    if len(relevant) < 2:
+        return systems
+
+    return relevant
+
+
+# --------------------------------
+# Compose equation from mechanisms
+# --------------------------------
+
+def compose_equation(mechanisms):
 
     t = symbols('t')
     x = Function('x')(t)
 
-    if "diffusion" in mechanisms:
+    rhs = 0
 
-        return Eq(diff(x, t), symbols('D') * diff(x, t, 2))
+    if "diffusion" in mechanisms:
+        D = symbols('D')
+        rhs += D * diff(x, t, 2)
 
     if "optimization" in mechanisms:
-
-        return Eq(diff(x, t), -symbols('eta') * symbols('grad_f'))
+        eta, grad_f = symbols('eta grad_f')
+        rhs += -eta * grad_f
 
     if "competition" in mechanisms:
-
-        return Eq(diff(x, t), symbols('a') * x * (1 - x))
+        a = symbols('a')
+        rhs += a * x * (1 - x)
 
     if "selection" in mechanisms:
-
-        return Eq(diff(x, t), symbols('r') * x)
+        r = symbols('r')
+        rhs += r * x
 
     if "feedback" in mechanisms:
+        k = symbols('k')
+        rhs += k * x
 
-        return Eq(diff(x, t), symbols('k') * x)
+    if rhs == 0:
+        rhs = symbols('f')
 
-    return Eq(diff(x, t), symbols('f'))
+    return Eq(diff(x, t), rhs)
 
 
-# ----------------------------------------
-# Algorithm Suggestions
-# ----------------------------------------
+# --------------------------------
+# Equilibria detection (safe)
+# --------------------------------
+
+def analyze_equilibria(eq):
+
+    t = symbols('t')
+    x = symbols('x')
+
+    try:
+
+        rhs = eq.rhs.subs({Function('x')(t): x})
+
+        if rhs.is_polynomial(x):
+
+            equilibria = solve(rhs, x)
+
+            return equilibria
+
+        else:
+
+            return []
+
+    except:
+
+        return []
+
+
+# --------------------------------
+# Symmetry detection
+# --------------------------------
+
+def detect_symmetry(eq):
+
+    t = symbols('t')
+    x = symbols('x')
+
+    rhs = eq.rhs.subs({Function('x')(t): x})
+
+    sym = []
+
+    try:
+
+        if simplify(rhs.subs(x, -x) + rhs) == 0:
+            sym.append("sign symmetry")
+
+    except:
+
+        pass
+
+    return sym
+
+
+# --------------------------------
+# Invariant detection
+# --------------------------------
+
+def detect_invariants(eq):
+
+    t = symbols('t')
+    x = symbols('x')
+
+    rhs = eq.rhs.subs({Function('x')(t): x})
+
+    invariants = []
+
+    try:
+
+        if simplify(rhs.subs(x, 0)) == 0:
+            invariants.append("x = 0 invariant")
+
+    except:
+
+        pass
+
+    return invariants
+
+
+# --------------------------------
+# Evaluate model
+# --------------------------------
+
+def evaluate_model(eq):
+
+    equilibria = analyze_equilibria(eq)
+    sym = detect_symmetry(eq)
+    inv = detect_invariants(eq)
+
+    score = len(equilibria) + len(sym) + len(inv)
+
+    return score, equilibria, sym, inv
+
+
+# --------------------------------
+# Model classification
+# --------------------------------
+
+def classify_model(mechanisms):
+
+    if "diffusion" in mechanisms and "competition" in mechanisms:
+        return "Reaction–Diffusion System"
+
+    if "optimization" in mechanisms and "diffusion" in mechanisms:
+        return "Diffusion Optimization System"
+
+    if "competition" in mechanisms and "selection" in mechanisms:
+        return "Replicator Dynamics"
+
+    if "feedback" in mechanisms and "optimization" in mechanisms:
+        return "Adaptive Control System"
+
+    if "diffusion" in mechanisms:
+        return "Diffusion System"
+
+    return "General Dynamical System"
+
+
+# --------------------------------
+# Suggest algorithm
+# --------------------------------
 
 def suggest_algorithm(mechanisms):
 
+    if "diffusion" in mechanisms and "optimization" in mechanisms:
+        return "Diffusion Optimization Algorithm"
+
+    if "competition" in mechanisms and "selection" in mechanisms:
+        return "Evolutionary Game Algorithm"
+
     if "diffusion" in mechanisms:
+        return "Network Diffusion Algorithm"
 
-        return "Network diffusion algorithm"
-
-    if "optimization" in mechanisms:
-
-        return "Gradient descent optimization"
-
-    if "competition" in mechanisms:
-
-        return "Game theoretic equilibrium solver"
-
-    if "selection" in mechanisms:
-
-        return "Evolutionary search algorithm"
-
-    if "feedback" in mechanisms:
-
-        return "Control system feedback solver"
-
-    return "Generic dynamical system solver"
+    return "General Dynamical Solver"
 
 
-# ----------------------------------------
-# Inspiration Engine
-# ----------------------------------------
+# --------------------------------
+# Engine
+# --------------------------------
 
 class InspirationEngine:
 
@@ -88,114 +243,86 @@ class InspirationEngine:
         print("Loaded systems:", len(self.systems))
 
 
-    # ------------------------------------
-    # Learn systems from research papers
-    # ------------------------------------
+    def search_model(self, subject):
 
-    def learn_from_research(self):
+        mechanism_hints = extract_mechanisms_from_subject(subject)
 
-        new_systems = fetch_arxiv_systems()
+        candidate_systems = find_relevant_systems(self.systems, mechanism_hints)
 
-        print("New systems discovered:", len(new_systems))
+        best_score = -1
+        best_result = None
 
-        self.systems.extend(new_systems)
+        for _ in range(80):
 
-        save_systems(self.systems)
+            size = random.choice([2,3,4])
 
+            systems = random.sample(candidate_systems, size)
 
-    # ------------------------------------
-    # Random discovery mode
-    # ------------------------------------
+            mechanisms = []
 
-    def discover(self):
+            for s in systems:
+                mechanisms += s.mechanisms
 
-        if len(self.systems) < 2:
-            return "Not enough systems in database."
+            mechanisms = list(set(mechanisms))
 
-        a, b = random.sample(self.systems, 2)
+            eq = compose_equation(mechanisms)
 
-        mechanisms = match_mechanisms(a, b)
+            score, equilibria, sym, inv = evaluate_model(eq)
 
-        eq = derive_equation(mechanisms)
+            if score > best_score:
 
-        algo = suggest_algorithm(mechanisms)
+                best_score = score
+                best_result = (systems, mechanisms, eq, equilibria, sym, inv)
 
-        result = {
-            "systemA": a.name,
-            "systemB": b.name,
-            "mechanisms": mechanisms,
-            "equation": str(eq),
-            "algorithm": algo
-        }
+        if best_result is None:
+            return None
 
-        return result
+        systems, mechanisms, eq, equilibria, sym, inv = best_result
 
+        explanation = ""
 
-    # ------------------------------------
-    # Target problem solving mode
-    # ------------------------------------
+        if equilibria:
+            explanation += f"Equilibria detected: {equilibria}. "
+
+        if sym:
+            explanation += f"Symmetry detected: {sym}. "
+
+        if inv:
+            explanation += f"Invariants detected: {inv}. "
+
+        model_type = classify_model(mechanisms)
+
+        return systems, mechanisms, eq, equilibria, sym, inv, explanation, model_type
+
 
     def solve(self, subject):
 
-        if len(self.systems) < 4:
-            return {
-                "subject": subject,
-                "systems": [],
-                "mechanisms": [],
-                "equation": "Not enough systems in database",
-                "algorithm": ""
-            }
+        result = self.search_model(subject)
 
-        systems = random.sample(self.systems, 4)
+        if result is None:
+            return {"analysis": "No meaningful model found."}
 
-        mechanisms = []
+        systems, mechanisms, eq, equilibria, sym, inv, explanation, model_type = result
 
-        system_names = []
-
-        for s in systems:
-
-            system_names.append(s.name)
-
-            mechanisms += s.mechanisms
-
-        mechanisms = list(set(mechanisms))
-
-        eq = derive_equation(mechanisms)
+        system_names = [s.name for s in systems]
 
         algo = suggest_algorithm(mechanisms)
 
         return {
 
             "subject": subject,
-
             "systems": system_names,
-
             "mechanisms": mechanisms,
-
             "equation": str(eq),
-
-            "algorithm": algo
+            "algorithm": algo,
+            "analysis": explanation,
+            "equilibria": equilibria,
+            "symmetries": sym,
+            "invariants": inv,
+            "model_type": model_type
         }
 
 
-# ----------------------------------------
-# Standalone run mode (for testing)
-# ----------------------------------------
+    def discovery_mode(self):
 
-if __name__ == "__main__":
-
-    engine = InspirationEngine()
-
-    engine.learn_from_research()
-
-    result = engine.discover()
-
-    print("\nDiscovery Mode Result\n")
-
-    print(result)
-
-    result2 = engine.solve("python code analysis")
-
-    print("\nTarget Mode Result\n")
-
-    print(result2)
+        return self.solve("general discovery")

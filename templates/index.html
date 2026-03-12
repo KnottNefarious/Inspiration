@@ -2,30 +2,81 @@
 <html>
 
 <head>
+
 <title>Inspiration Engine</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
-font-family: Arial;
-background:#111;
-color:#eee;
-padding:40px;
+font-family:Arial, Helvetica, sans-serif;
+background:#0f1116;
+color:#e5e7eb;
+margin:0;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+text-align:center;
+}
+
+.card{
+background:#1c1f26;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
 }
 
 input{
-width:300px;
-padding:10px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:6px;
+margin-bottom:15px;
+font-size:16px;
 }
 
 button{
-padding:10px;
+padding:12px 20px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-right:10px;
 }
 
-.result{
-margin-top:30px;
-background:#222;
-padding:20px;
+.solve{
+background:#3b82f6;
+color:white;
+}
+
+.discover{
+background:#10b981;
+color:white;
+}
+
+select{
+padding:10px;
+margin-top:10px;
+border-radius:6px;
+}
+
+code{
+background:#111827;
+padding:10px;
+display:block;
+border-radius:6px;
+margin-top:10px;
+white-space:pre-wrap;
+}
+
+ul{
+padding-left:20px;
 }
 
 </style>
@@ -34,24 +85,37 @@ padding:20px;
 
 <body>
 
+<div class="container">
+
 <h1>Inspiration Engine</h1>
+
+<div class="card">
 
 <form method="POST">
 
 <input name="subject" placeholder="Enter problem or project">
 
-<button type="submit">Run Engine</button>
+<button class="solve" type="submit" name="mode" value="solve">
+Solve Problem
+</button>
+
+<button class="discover" type="submit" name="mode" value="discover">
+Discovery Mode
+</button>
 
 </form>
 
+</div>
+
 {% if result %}
 
-<div class="result">
+<div class="card">
 
-<h3>Target</h3>
-{{result.subject}}
+<h3>Model Type</h3>
+<p>{{result.model_type}}</p>
 
 <h3>Systems Used</h3>
+
 <ul>
 {% for s in result.systems %}
 <li>{{s}}</li>
@@ -59,17 +123,76 @@ padding:20px;
 </ul>
 
 <h3>Mechanisms</h3>
-{{result.mechanisms}}
+<p>{{result.mechanisms}}</p>
 
-<h3>Candidate Equation</h3>
+<h3>Equation Format</h3>
+
+<select id="mathFormat">
+<option value="sympy">Symbolic</option>
+<option value="readable">Readable</option>
+<option value="latex">LaTeX</option>
+<option value="explain">Explanation</option>
+</select>
+
+<code id="equationDisplay"
+data-equation="{{result.equation}}">
 {{result.equation}}
+</code>
 
 <h3>Suggested Algorithm</h3>
-{{result.algorithm}}
+<p>{{result.algorithm}}</p>
+
+<h3>Mathematical Analysis</h3>
+<p>{{result.analysis}}</p>
+
+<h3>Equilibria</h3>
+<p>{{result.equilibria}}</p>
+
+<h3>Symmetries</h3>
+<p>{{result.symmetries}}</p>
+
+<h3>Invariants</h3>
+<p>{{result.invariants}}</p>
 
 </div>
 
+<script>
+
+const display = document.getElementById("equationDisplay")
+const eq = display.dataset.equation
+
+document.getElementById("mathFormat").addEventListener("change", function(){
+
+let format = this.value
+
+if(format === "sympy"){
+display.textContent = eq
+}
+
+if(format === "readable"){
+display.textContent =
+eq.replace(/Derivative\(x\(t\), t\)/g,"dx/dt")
+.replace(/Derivative\(x\(t\), \(t, 2\)\)/g,"d²x/dt²")
+.replace(/\*/g," ")
+}
+
+if(format === "latex"){
+display.textContent =
+"\\frac{dx}{dt} = D\\frac{d^2x}{dt^2} + a x(1-x) - \\eta \\nabla f + kx"
+}
+
+if(format === "explain"){
+display.textContent =
+"Rate of change equals diffusion plus nonlinear competition plus optimization pressure plus feedback."
+}
+
+})
+
+</script>
+
 {% endif %}
+
+</div>
 
 </body>
 
