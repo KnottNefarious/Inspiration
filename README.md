@@ -1,6 +1,7 @@
 # Inspiration
 It is what it means 
-Inspiration Engine
+
+## Inspiration Engine
 
 A cross-domain discovery engine that searches for mathematical structures shared between different systems.
 
