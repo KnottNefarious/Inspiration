@@ -155,7 +155,7 @@ Possible directions for the project:
 
 Author
 
-Created by Stephen O'Neil Kennedy Jr.
+Created by Stephen
 
 ---
 
