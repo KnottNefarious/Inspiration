@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from inspiration_engine_enhanced import InspirationEngine
+from inspiration_engine_phase2 import InspirationEngine
 
 app = Flask(__name__)
 

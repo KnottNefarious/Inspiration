@@ -31,6 +31,7 @@ background:#1c1f26;
 padding:20px;
 border-radius:10px;
 margin-bottom:20px;
+position: relative;
 }
 
 input{
@@ -60,6 +61,24 @@ background:#10b981;
 color:white;
 }
 
+.copy-btn{
+background:#8b5cf6;
+color:white;
+position: absolute;
+top: 20px;
+right: 20px;
+padding: 10px 20px;
+font-size: 14px;
+}
+
+.copy-btn:hover{
+background:#7c3aed;
+}
+
+.copy-success{
+background:#10b981 !important;
+}
+
 select{
 padding:10px;
 margin-top:10px;
@@ -77,6 +96,27 @@ white-space:pre-wrap;
 
 ul{
 padding-left:20px;
+}
+
+.input-display{
+background:#111827;
+padding:15px;
+border-radius:6px;
+margin-bottom:15px;
+border-left: 4px solid #3b82f6;
+}
+
+.input-label{
+color:#9ca3af;
+font-size:12px;
+text-transform:uppercase;
+margin-bottom:5px;
+}
+
+.input-text{
+font-size:18px;
+color:#e5e7eb;
+font-weight:500;
 }
 
 </style>
@@ -111,6 +151,14 @@ Discovery Mode
 
 <div class="card">
 
+<button class="copy-btn" onclick="copyResults()">📋 Copy All Results</button>
+
+<!-- Display the input -->
+<div class="input-display">
+<div class="input-label">Your Input</div>
+<div class="input-text">{{ result.subject }}</div>
+</div>
+
 <h3>Model Type</h3>
 <p>{{result.model_type}}</p>
 
@@ -144,6 +192,18 @@ data-equation="{{result.equation}}">
 
 <h3>Mathematical Analysis</h3>
 <p>{{result.analysis}}</p>
+
+{% if result.simulation %}
+<h3>Simulation Results</h3>
+<p><strong>Validated:</strong> {{ result.simulation.validated }}</p>
+<p><strong>Confidence:</strong> {{ "%.0f"|format(result.simulation.confidence * 100) }}%</p>
+<p><strong>Behaviors:</strong></p>
+<ul>
+{% for behavior, present in result.simulation.behaviors.items() %}
+<li>{{ behavior }}: {{ "✓" if present else "✗" }}</li>
+{% endfor %}
+</ul>
+{% endif %}
 
 <h3>Equilibria</h3>
 <p>{{result.equilibria}}</p>
@@ -187,6 +247,63 @@ display.textContent =
 }
 
 })
+
+function copyResults() {
+    const btn = document.querySelector('.copy-btn');
+
+    // Build the text to copy
+    let text = `INSPIRATION ENGINE RESULTS\n`;
+    text += `${"=".repeat(60)}\n\n`;
+
+    text += `INPUT: {{ result.subject }}\n\n`;
+
+    text += `MODEL TYPE: {{ result.model_type }}\n\n`;
+
+    text += `SYSTEMS USED:\n`;
+    {% for s in result.systems %}
+    text += `  - {{ s }}\n`;
+    {% endfor %}
+    text += `\n`;
+
+    text += `MECHANISMS: {{ result.mechanisms }}\n\n`;
+
+    text += `EQUATION:\n{{ result.equation }}\n\n`;
+
+    text += `ALGORITHM: {{ result.algorithm }}\n\n`;
+
+    text += `ANALYSIS:\n{{ result.analysis }}\n\n`;
+
+    {% if result.simulation %}
+    text += `SIMULATION:\n`;
+    text += `  Validated: {{ result.simulation.validated }}\n`;
+    text += `  Confidence: {{ "%.0f"|format(result.simulation.confidence * 100) }}%\n`;
+    text += `  Behaviors:\n`;
+    {% for behavior, present in result.simulation.behaviors.items() %}
+    text += `    - {{ behavior }}: {{ "✓" if present else "✗" }}\n`;
+    {% endfor %}
+    text += `\n`;
+    {% endif %}
+
+    text += `EQUILIBRIA: {{ result.equilibria }}\n\n`;
+    text += `SYMMETRIES: {{ result.symmetries }}\n\n`;
+    text += `INVARIANTS: {{ result.invariants }}\n`;
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(text).then(() => {
+        // Show success
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copy-success');
+
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.remove('copy-success');
+        }, 2000);
+    }).catch(err => {
+        alert('Failed to copy. Please try selecting and copying manually.');
+        console.error('Copy failed:', err);
+    });
+}
 
 </script>
 
