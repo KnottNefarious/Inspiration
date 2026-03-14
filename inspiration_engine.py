@@ -1,7 +1,7 @@
 import random
 from sympy import symbols, Function, Eq, diff, solve, simplify
 
-from system_database import load_systems
+from system_database_v2 import load_systems
 from mechanism_graph import MECHANISM_GRAPH
 
 

@@ -2,7 +2,7 @@
   {
     "name": "Fluid Dynamics",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
@@ -10,131 +10,208 @@
       "feedback",
       "chaos"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Heat Diffusion",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "diffusion"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Wave Equation",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "oscillation",
       "propagation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Quantum Wavefunction",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "oscillation",
       "interference"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Gravitational N-body",
     "domain": "physics",
-    "structures": [
+    "type": [
       "particles"
     ],
     "mechanisms": [
       "attraction",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Magnetic Field Dynamics",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "feedback",
       "propagation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Plasma Dynamics",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "diffusion",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Turbulent Flow",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "chaos",
       "diffusion"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Laser Oscillation",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "oscillation",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Electromagnetic Field",
     "domain": "physics",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "propagation",
       "oscillation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Population Growth",
     "domain": "biology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "competition",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Predator Prey",
     "domain": "biology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
@@ -142,24 +219,38 @@
       "feedback",
       "oscillation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Gene Regulation Network",
     "domain": "biology",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "feedback",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Neural Activity",
     "domain": "biology",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
@@ -167,12 +258,19 @@
       "feedback",
       "diffusion"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Immune Response",
     "domain": "biology",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
@@ -180,72 +278,114 @@
       "selection",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Ecosystem Dynamics",
     "domain": "biology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "competition",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Bacterial Colony Growth",
     "domain": "biology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "diffusion",
       "competition"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Cell Signaling",
     "domain": "biology",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "propagation",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Protein Interaction Network",
     "domain": "biology",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "interaction",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Evolutionary Dynamics",
     "domain": "biology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "selection",
       "mutation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Neural Network",
     "domain": "neuroscience",
-    "structures": [
+    "type": [
       "graph"
     ],
     "mechanisms": [
@@ -253,84 +393,133 @@
       "optimization",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Synaptic Plasticity",
     "domain": "neuroscience",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "adaptation",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Brain Oscillations",
     "domain": "neuroscience",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "oscillation",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Cortical Wave Propagation",
     "domain": "neuroscience",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "diffusion",
       "propagation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Decision Networks",
     "domain": "neuroscience",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "competition",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Distributed Systems",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "coordination",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "PageRank",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "graph"
     ],
     "mechanisms": [
       "diffusion",
       "optimization"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Genetic Algorithm",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
@@ -338,12 +527,19 @@
       "mutation",
       "optimization"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Reinforcement Learning",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "agent"
     ],
     "mechanisms": [
@@ -351,84 +547,133 @@
       "optimization",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Swarm Optimization",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "adaptation",
       "diffusion"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Ant Colony Optimization",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "diffusion",
       "optimization"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Consensus Algorithm",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "coordination",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Graph Neural Network",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "graph"
     ],
     "mechanisms": [
       "diffusion",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Monte Carlo Search",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "exploration",
       "selection"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Game AI Dynamics",
     "domain": "computer science",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "competition",
       "optimization"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Market Economy",
     "domain": "economics",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
@@ -436,24 +681,38 @@
       "adaptation",
       "optimization"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Supply Demand Model",
     "domain": "economics",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "feedback",
       "competition"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Financial Market Dynamics",
     "domain": "economics",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
@@ -461,131 +720,208 @@
       "feedback",
       "chaos"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Innovation Diffusion",
     "domain": "economics",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "diffusion",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Auction Dynamics",
     "domain": "economics",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "competition",
       "optimization"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Game Theory Dynamics",
     "domain": "economics",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "competition",
       "selection"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Economic Growth",
     "domain": "economics",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "adaptation",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Rumor Spread",
     "domain": "social",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "diffusion"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Opinion Dynamics",
     "domain": "social",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "competition",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Social Influence",
     "domain": "social",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "propagation",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Cultural Evolution",
     "domain": "social",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "selection",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Information Cascades",
     "domain": "social",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "diffusion",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Collective Behavior",
     "domain": "social",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "coordination",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Traffic Network",
     "domain": "engineering",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
@@ -593,232 +929,372 @@
       "diffusion",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Power Grid",
     "domain": "engineering",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "coordination",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Control Systems",
     "domain": "engineering",
-    "structures": [
+    "type": [
       "feedback loop"
     ],
     "mechanisms": [
       "feedback",
       "optimization"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Internet Routing",
     "domain": "engineering",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "optimization",
       "diffusion"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Sensor Networks",
     "domain": "engineering",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "coordination",
       "propagation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Robotics Swarms",
     "domain": "engineering",
-    "structures": [
+    "type": [
       "agents"
     ],
     "mechanisms": [
       "coordination",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Chemical Reaction",
     "domain": "chemistry",
-    "structures": [
+    "type": [
       "particles"
     ],
     "mechanisms": [
       "reaction",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Reaction Diffusion",
     "domain": "chemistry",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "diffusion",
       "reaction"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Oscillating Reaction",
     "domain": "chemistry",
-    "structures": [
+    "type": [
       "particles"
     ],
     "mechanisms": [
       "oscillation",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Catalytic Networks",
     "domain": "chemistry",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "reaction",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Food Web",
     "domain": "ecology",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "competition",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Species Migration",
     "domain": "ecology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "diffusion",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Forest Dynamics",
     "domain": "ecology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "competition",
       "adaptation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Disease Spread",
     "domain": "epidemiology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "diffusion",
       "infection"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Epidemic Models",
     "domain": "epidemiology",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "diffusion",
       "feedback"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Lotka Volterra Dynamics",
     "domain": "math",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "competition",
       "oscillation"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Replicator Dynamics",
     "domain": "math",
-    "structures": [
+    "type": [
       "population"
     ],
     "mechanisms": [
       "selection",
       "competition"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Gradient Flow",
     "domain": "math",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "optimization"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Diffusion Equation",
     "domain": "math",
-    "structures": [
+    "type": [
       "field"
     ],
     "mechanisms": [
       "diffusion"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   },
   {
     "name": "Kuramoto Oscillators",
     "domain": "math",
-    "structures": [
+    "type": [
       "network"
     ],
     "mechanisms": [
       "oscillation",
       "coordination"
     ],
-    "math_models": []
+    "paper_title": null,
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": null,
+    "abstract": null,
+    "added_by": "system",
+    "added_date": null
   }
 ]
