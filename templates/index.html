@@ -9,14 +9,19 @@ font-family:Arial, Helvetica, sans-serif;
 background:#0f1116;
 color:#e5e7eb;
 margin:0;
+padding-bottom:50px;
 }
 .container{
-max-width:900px;
+max-width:1000px;
 margin:auto;
 padding:20px;
 }
 h1{
 text-align:center;
+}
+h2{
+color:#3b82f6;
+margin-top:30px;
 }
 .card{
 background:#1c1f26;
@@ -25,13 +30,20 @@ border-radius:10px;
 margin-bottom:20px;
 position: relative;
 }
-input{
+input, textarea, select{
 width:100%;
 padding:12px;
 border:none;
 border-radius:6px;
 margin-bottom:15px;
 font-size:16px;
+background:#2a2d35;
+color:#e5e7eb;
+box-sizing:border-box;
+}
+textarea{
+min-height:100px;
+font-family:monospace;
 }
 button{
 padding:12px 20px;
@@ -39,15 +51,15 @@ border:none;
 border-radius:6px;
 cursor:pointer;
 margin-right:10px;
+margin-bottom:10px;
 }
-.solve{
-background:#3b82f6;
-color:white;
-}
-.discover{
-background:#10b981;
-color:white;
-}
+.solve{background:#3b82f6;color:white;}
+.discover{background:#10b981;color:white;}
+.extract{background:#8b5cf6;color:white;}
+.learn{background:#f59e0b;color:white;}
+.stats{background:#ec4899;color:white;}
+.search{background:#06b6d4;color:white;}
+.clear{background:#6b7280;color:white;}
 .copy-btn{
 background:#8b5cf6;
 color:white;
@@ -57,17 +69,8 @@ right: 20px;
 padding: 10px 20px;
 font-size: 14px;
 }
-.copy-btn:hover{
-background:#7c3aed;
-}
-.copy-success{
-background:#10b981 !important;
-}
-select{
-padding:10px;
-margin-top:10px;
-border-radius:6px;
-}
+.copy-btn:hover{background:#7c3aed;}
+.copy-success{background:#10b981 !important;}
 code{
 background:#111827;
 padding:10px;
@@ -76,9 +79,7 @@ border-radius:6px;
 margin-top:10px;
 white-space:pre-wrap;
 }
-ul{
-padding-left:20px;
-}
+ul{padding-left:20px;}
 .input-display{
 background:#111827;
 padding:15px;
@@ -97,44 +98,83 @@ font-size:18px;
 color:#e5e7eb;
 font-weight:500;
 }
+.result-box{
+background:#111827;
+padding:15px;
+border-radius:6px;
+margin-top:10px;
+}
+.success{color:#10b981;}
+.error{color:#ef4444;}
+.warning{color:#f59e0b;}
+.tabs{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+.tab{
+padding:10px 20px;
+background:#2a2d35;
+border-radius:6px;
+cursor:pointer;
+}
+.tab.active{background:#3b82f6;}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.format-example{
+background:#1a1d24;
+padding:10px;
+border-radius:6px;
+margin:10px 0;
+font-size:12px;
+color:#9ca3af;
+}
 </style>
 </head>
 <body>
 
 <div class="container">
 
-<h1>Inspiration Engine</h1>
+<h1>🚀 Inspiration Engine</h1>
+<p style="text-align:center; color:#9ca3af;">Phase 3 Complete - Research Tool</p>
+
+<!-- TABS -->
+<div class="tabs">
+<div class="tab active" onclick="switchTab('main')">Main Engine</div>
+<div class="tab" onclick="switchTab('paper')">Extract from Paper</div>
+<div class="tab" onclick="switchTab('search')">Search Web</div>
+<div class="tab" onclick="switchTab('ode')">Learn from Data</div>
+<div class="tab" onclick="switchTab('stats')">Database Stats</div>
+</div>
+
+<!-- TAB 1: MAIN ENGINE -->
+<div id="tab-main" class="tab-content active">
 
 <div class="card">
+<h2>Query Engine</h2>
 <form method="POST">
-<input name="subject" placeholder="Enter problem or project">
+<input name="subject" placeholder="Enter problem or project" required>
 <button class="solve" type="submit" name="mode" value="solve">
-Solve Problem
+🔍 Solve Problem
 </button>
 <button class="discover" type="submit" name="mode" value="discover">
-Discovery Mode
+🎲 Discovery Mode
 </button>
 </form>
 </div>
 
 {% if error %}
-
 <div class="card" style="border-left: 4px solid #ef4444;">
-
 <h2 style="color:#ef4444;">❌ Error Occurred</h2>
-
 <h3>Error Type</h3>
 <p style="color:#fca5a5;">{{ error.type }}</p>
-
 <h3>Error Message</h3>
 <p style="color:#fca5a5;">{{ error.message }}</p>
-
 <h3>Full Traceback (Copy This!)</h3>
 <button class="copy-btn" style="position:static; margin-bottom:10px;" onclick="copyError()">📋 Copy Error</button>
 <code id="errorTrace" style="color:#fca5a5; max-height:400px; overflow-y:auto;">{{ error.traceback }}</code>
-
 </div>
-
 <script>
 function copyError() {
     const errorText = document.getElementById('errorTrace').textContent;
@@ -143,16 +183,12 @@ function copyError() {
     });
 }
 </script>
-
 {% endif %}
 
 {% if result %}
-
 <div class="card">
-
 <button class="copy-btn" onclick="copyResults()">📋 Copy Results</button>
 
-<!-- Display the input -->
 {% if result.subject %}
 <div class="input-display">
 <div class="input-label">Your Input</div>
@@ -173,12 +209,12 @@ function copyError() {
 <h3>Mechanisms</h3>
 <p id="mechanisms">{{result.mechanisms}}</p>
 
-<h3>Equation Format</h3>
-<select id="mathFormat">
-<option value="sympy">Symbolic</option>
+<h3>Equation</h3>
+<select id="mathFormat" onchange="changeEquationFormat()">
+<option value="sympy">Symbolic (SymPy)</option>
 <option value="readable">Readable</option>
 <option value="latex">LaTeX</option>
-<option value="explain">Explanation</option>
+<option value="python">Python Code</option>
 </select>
 
 <code id="equationDisplay" data-equation="{{result.equation}}">
@@ -215,93 +251,326 @@ function copyError() {
 <p id="invariants">{{result.invariants}}</p>
 
 </div>
+{% endif %}
+
+</div>
+
+<!-- TAB 2: PAPER EXTRACTION -->
+<div id="tab-paper" class="tab-content">
+
+<div class="card">
+<h2>📄 Extract Systems from Paper</h2>
+<p style="color:#9ca3af;">Paste a paper abstract and extract systems automatically</p>
+
+<input type="text" id="paperTitle" placeholder="Paper Title">
+<input type="text" id="paperAuthors" placeholder="Authors (optional)">
+<input type="text" id="paperYear" placeholder="Year (optional)">
+<textarea id="paperAbstract" placeholder="Paste paper abstract here..."></textarea>
+
+<button class="extract" onclick="extractPaper()">🔬 Extract Systems</button>
+<button class="clear" onclick="clearPaperForm()">🗑️ Clear</button>
+
+<div id="paperResult"></div>
+</div>
+
+</div>
+
+<!-- TAB 3: WEB SEARCH -->
+<div id="tab-search" class="tab-content">
+
+<div class="card">
+<h2>🌐 Search Web for Papers</h2>
+<p style="color:#9ca3af;">Search for research papers OR paste a URL to auto-extract</p>
+
+<h3>Search Query or URL</h3>
+<input type="text" id="searchQuery" placeholder="e.g., 'swarm intelligence' OR 'https://example.com/paper'">
+
+<p style="color:#9ca3af; font-size:14px; margin-top:5px;">
+💡 <strong>Paste a URL</strong> to automatically fetch and extract systems!<br>
+Or enter keywords to search academic databases.
+</p>
+
+<h3>Search Targets (if using keywords)</h3>
+<div style="margin:10px 0;">
+<label style="display:block; margin:5px 0;">
+<input type="checkbox" id="searchGoogle" checked> Google Scholar
+</label>
+<label style="display:block; margin:5px 0;">
+<input type="checkbox" id="searchArxiv" checked> arXiv.org
+</label>
+<label style="display:block; margin:5px 0;">
+<input type="checkbox" id="searchPubmed"> PubMed
+</label>
+</div>
+
+<button class="search" onclick="searchWeb()">🔍 Search / Fetch</button>
+<button class="clear" onclick="clearSearchForm()">🗑️ Clear</button>
+
+<div id="searchResult"></div>
+</div>
+
+<!-- NEW: Website Crawler -->
+<div class="card" style="border-left: 4px solid #f59e0b;">
+<h2>🕷️ Crawl Entire Website</h2>
+<p style="color:#9ca3af;">Automatically crawl and extract from all pages on a website</p>
+
+<h3>Seed URL (Base Website)</h3>
+<input type="text" id="crawlSeedUrl" placeholder="e.g., https://www.jeremykun.com/">
+
+<h3>Max Pages to Crawl</h3>
+<select id="crawlMaxPages">
+<option value="10">10 pages (Quick)</option>
+<option value="20" selected>20 pages (Recommended)</option>
+<option value="50">50 pages (Deep)</option>
+<option value="100">100 pages (Very Deep)</option>
+</select>
+
+<p style="color:#9ca3af; font-size:14px; margin-top:10px;">
+⚠️ <strong>Warning:</strong> This will visit multiple pages on the site.<br>
+Higher page counts take longer (0.5 sec per page + processing).<br>
+💡 Start with 20 pages, then increase if needed.
+</p>
+
+<button class="learn" onclick="crawlWebsite()">🕷️ Start Crawling</button>
+<button class="clear" onclick="clearCrawlForm()">🗑️ Clear</button>
+
+<div id="crawlResult"></div>
+</div>
+
+</div>
+
+<!-- TAB 4: NEURAL ODE -->
+<div id="tab-ode" class="tab-content">
+
+<div class="card">
+<h2>🧠 Learn Equation from Data</h2>
+<p style="color:#9ca3af;">Upload data and learn the differential equation</p>
+
+<h3>Data Format</h3>
+<select id="dataFormat" onchange="updateDataExample()">
+<option value="csv">CSV (time, value)</option>
+<option value="tsv">TSV (tab-separated)</option>
+<option value="json">JSON [{t, x}]</option>
+<option value="space">Space-separated</option>
+</select>
+
+<div id="formatExample" class="format-example">
+<!-- Will be populated by JavaScript -->
+</div>
+
+<textarea id="csvData" placeholder="Paste data here..."></textarea>
+
+<button class="learn" onclick="learnODE()">📊 Learn Equation</button>
+<button class="clear" onclick="clearODEForm()">🗑️ Clear</button>
+
+<div id="odeResult"></div>
+</div>
+
+</div>
+
+<!-- TAB 5: DATABASE STATS -->
+<div id="tab-stats" class="tab-content">
+
+<div class="card">
+<h2>📊 Database Statistics</h2>
+<p style="color:#9ca3af;">View system database information and citations</p>
+
+<button class="stats" onclick="loadStats()">🔄 Refresh Stats</button>
+
+<div id="statsResult"></div>
+</div>
+
+</div>
+
+</div>
 
 <script>
 
-// Equation format switcher
-const display = document.getElementById("equationDisplay")
-const eq = display.dataset.equation
+// Initialize format example on load
+window.onload = function() {
+    updateDataExample();
+};
 
-document.getElementById("mathFormat").addEventListener("change", function(){
-    let format = this.value
+// Tab switching
+function switchTab(tabName) {
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    const tabButtons = document.querySelectorAll('.tab');
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById('tab-' + tabName).classList.add('active');
+    event.target.classList.add('active');
+}
+
+// Update data format example
+function updateDataExample() {
+    const format = document.getElementById('dataFormat').value;
+    const exampleDiv = document.getElementById('formatExample');
+
+    const examples = {
+        'csv': `<strong>Example CSV format:</strong>
+0,10
+1,15
+2,25
+3,40
+4,60`,
+        'tsv': `<strong>Example TSV format:</strong>
+0\t10
+1\t15
+2\t25
+3\t40
+4\t60`,
+        'json': `<strong>Example JSON format:</strong>
+[
+  {"t": 0, "x": 10},
+  {"t": 1, "x": 15},
+  {"t": 2, "x": 25}
+]`,
+        'space': `<strong>Example space-separated:</strong>
+0 10
+1 15
+2 25
+3 40
+4 60`
+    };
+
+    exampleDiv.innerHTML = examples[format] || '';
+}
+
+// Parse data based on format
+function parseDataByFormat(data, format) {
+    const lines = data.trim().split('\n');
+    const timeData = [];
+    const valueData = [];
+
+    if (format === 'json') {
+        try {
+            const jsonData = JSON.parse(data);
+            jsonData.forEach(item => {
+                if (item.t !== undefined && item.x !== undefined) {
+                    timeData.push(parseFloat(item.t));
+                    valueData.push(parseFloat(item.x));
+                }
+            });
+        } catch (e) {
+            throw new Error('Invalid JSON format');
+        }
+    } else {
+        const separator = format === 'tsv' ? '\t' : (format === 'space' ? ' ' : ',');
+
+        for (const line of lines) {
+            const parts = line.trim().split(separator);
+            if (parts.length >= 2) {
+                try {
+                    timeData.push(parseFloat(parts[0].trim()));
+                    valueData.push(parseFloat(parts[1].trim()));
+                } catch {
+                    // Skip bad lines
+                }
+            }
+        }
+    }
+
+    return { timeData, valueData };
+}
+
+// Equation format switcher
+function changeEquationFormat() {
+    const display = document.getElementById("equationDisplay");
+    const eq = display.dataset.equation;
+    const format = document.getElementById("mathFormat").value;
 
     if(format === "sympy"){
-        display.textContent = eq
+        display.textContent = eq;
     }
 
     if(format === "readable"){
-        display.textContent =
-        eq.replace(/Derivative\(x\(t\), t\)/g,"dx/dt")
-        .replace(/Derivative\(x\(t\), \(t, 2\)\)/g,"d²x/dt²")
-        .replace(/\*/g," ")
+        let readable = eq;
+        readable = readable.replace(/Derivative\(x\(t\), t\)/g, "dx/dt");
+        readable = readable.replace(/Derivative\(x\(t\), \(t, 2\)\)/g, "d²x/dt²");
+        readable = readable.replace(/x\(t\)/g, "x");
+        readable = readable.replace(/Eq\(/g, "");
+        readable = readable.replace(/\)$/g, "");
+        readable = readable.replace(/\*\*/g, "^");
+        display.textContent = readable;
     }
 
     if(format === "latex"){
-        display.textContent =
-        "\\frac{dx}{dt} = D\\frac{d^2x}{dt^2} + a x(1-x) - \\eta \\nabla f + kx"
+        let latex = eq;
+        latex = latex.replace(/Derivative\(x\(t\), t\)/g, "\\frac{dx}{dt}");
+        latex = latex.replace(/Derivative\(x\(t\), \(t, 2\)\)/g, "\\frac{d^2x}{dt^2}");
+        latex = latex.replace(/x\(t\)/g, "x");
+        latex = latex.replace(/\*\*/g, "^");
+        latex = latex.replace(/Eq\(/g, "");
+        latex = latex.replace(/\)$/g, "");
+        display.textContent = latex;
     }
 
-    if(format === "explain"){
-        display.textContent =
-        "Rate of change equals diffusion plus nonlinear competition plus optimization pressure plus feedback."
-    }
-})
+    if(format === "python"){
+        let equation = eq;
+        equation = equation.replace(/^Eq\s*\(\s*/, "").replace(/\s*\)$/, "");
 
-// Copy function
+        const derivMatch = equation.match(/^Derivative\([^,]+,\s*[^)]+\)\s*,\s*(.+)$/);
+
+        if (derivMatch) {
+            let rhs = derivMatch[1];
+            rhs = rhs.replace(/x\(t\)/g, "x");
+            rhs = rhs.replace(/\*\*/g, "**");
+
+            let python = "def dxdt(x, t):\n";
+            python += "    # Parameters (define these):\n";
+            python += "    # a, k, D, etc.\n";
+            python += "    return " + rhs;
+
+            display.textContent = python;
+        } else {
+            const parts = equation.split(/,\s*(?=[^,]*$)/);
+            if (parts.length >= 2) {
+                let rhs = parts[1].trim();
+                rhs = rhs.replace(/x\(t\)/g, "x");
+                display.textContent = "def dxdt(x, t):\n    return " + rhs;
+            } else {
+                display.textContent = "# Could not parse equation\n# Format: " + eq;
+            }
+        }
+    }
+}
+
+// Copy results function
 function copyResults() {
     const btn = document.querySelector('.copy-btn');
 
     let text = `INSPIRATION ENGINE RESULTS\n`;
     text += `${"=".repeat(60)}\n\n`;
 
-    // Get input
     const inputEl = document.getElementById('userInput');
-    if (inputEl) {
-        text += `INPUT: ${inputEl.textContent}\n\n`;
-    }
+    if (inputEl) text += `INPUT: ${inputEl.textContent}\n\n`;
 
-    // Get model type
     const modelEl = document.getElementById('modelType');
-    if (modelEl) {
-        text += `MODEL TYPE: ${modelEl.textContent}\n\n`;
-    }
+    if (modelEl) text += `MODEL TYPE: ${modelEl.textContent}\n\n`;
 
-    // Get systems
     const systemsList = document.getElementById('systemsList');
     if (systemsList) {
         text += `SYSTEMS USED:\n`;
-        const systems = systemsList.querySelectorAll('li');
-        systems.forEach(s => {
+        systemsList.querySelectorAll('li').forEach(s => {
             text += `  - ${s.textContent}\n`;
         });
         text += `\n`;
     }
 
-    // Get mechanisms
     const mechEl = document.getElementById('mechanisms');
-    if (mechEl) {
-        text += `MECHANISMS: ${mechEl.textContent}\n\n`;
-    }
+    if (mechEl) text += `MECHANISMS: ${mechEl.textContent}\n\n`;
 
-    // Get equation
     const eqEl = document.getElementById('equationDisplay');
-    if (eqEl) {
-        text += `EQUATION:\n${eqEl.textContent}\n\n`;
-    }
+    if (eqEl) text += `EQUATION:\n${eqEl.dataset.equation}\n\n`;
 
-    // Get algorithm
     const algoEl = document.getElementById('algorithm');
-    if (algoEl) {
-        text += `ALGORITHM: ${algoEl.textContent}\n\n`;
-    }
+    if (algoEl) text += `ALGORITHM: ${algoEl.textContent}\n\n`;
 
-    // Get analysis
     const analysisEl = document.getElementById('analysis');
-    if (analysisEl) {
-        text += `ANALYSIS:\n${analysisEl.textContent}\n\n`;
-    }
+    if (analysisEl) text += `ANALYSIS:\n${analysisEl.textContent}\n\n`;
 
-    // Get simulation
     const simEl = document.getElementById('simulation');
     if (simEl) {
         text += `SIMULATION:\n`;
@@ -313,33 +582,22 @@ function copyResults() {
         const behaviors = document.getElementById('simBehaviors');
         if (behaviors) {
             text += `  Behaviors:\n`;
-            const items = behaviors.querySelectorAll('li');
-            items.forEach(item => {
+            behaviors.querySelectorAll('li').forEach(item => {
                 text += `    - ${item.textContent}\n`;
             });
         }
         text += `\n`;
     }
 
-    // Get equilibria
     const eqiEl = document.getElementById('equilibria');
-    if (eqiEl) {
-        text += `EQUILIBRIA: ${eqiEl.textContent}\n\n`;
-    }
+    if (eqiEl) text += `EQUILIBRIA: ${eqiEl.textContent}\n\n`;
 
-    // Get symmetries
     const symEl = document.getElementById('symmetries');
-    if (symEl) {
-        text += `SYMMETRIES: ${symEl.textContent}\n\n`;
-    }
+    if (symEl) text += `SYMMETRIES: ${symEl.textContent}\n\n`;
 
-    // Get invariants
     const invEl = document.getElementById('invariants');
-    if (invEl) {
-        text += `INVARIANTS: ${invEl.textContent}\n`;
-    }
+    if (invEl) text += `INVARIANTS: ${invEl.textContent}\n`;
 
-    // Copy to clipboard
     navigator.clipboard.writeText(text).then(() => {
         const originalText = btn.textContent;
         btn.textContent = '✓ Copied!';
@@ -350,16 +608,423 @@ function copyResults() {
             btn.classList.remove('copy-success');
         }, 2000);
     }).catch(err => {
-        alert('Copy failed. Please select and copy manually.');
-        console.error('Copy error:', err);
+        alert('Copy failed.');
+        console.error(err);
+    });
+}
+
+// Clear forms
+function clearPaperForm() {
+    document.getElementById('paperTitle').value = '';
+    document.getElementById('paperAuthors').value = '';
+    document.getElementById('paperYear').value = '';
+    document.getElementById('paperAbstract').value = '';
+    document.getElementById('paperResult').innerHTML = '';
+}
+
+function clearSearchForm() {
+    document.getElementById('searchQuery').value = '';
+    document.getElementById('searchResult').innerHTML = '';
+}
+
+function clearCrawlForm() {
+    document.getElementById('crawlSeedUrl').value = '';
+    document.getElementById('crawlResult').innerHTML = '';
+}
+
+// Crawl entire website
+function crawlWebsite() {
+    const seedUrl = document.getElementById('crawlSeedUrl').value.trim();
+    const maxPages = document.getElementById('crawlMaxPages').value;
+
+    if (!seedUrl) {
+        alert('Please enter a seed URL (e.g., https://www.jeremykun.com/)');
+        return;
+    }
+
+    // Validate URL
+    if (!seedUrl.startsWith('http://') && !seedUrl.startsWith('https://')) {
+        alert('Please enter a valid URL starting with http:// or https://');
+        return;
+    }
+
+    const resultDiv = document.getElementById('crawlResult');
+    resultDiv.innerHTML = `<p>⏳ Starting website crawl...</p>
+        <p style="color:#9ca3af;">Crawling up to ${maxPages} pages from ${seedUrl}</p>
+        <p style="color:#9ca3af;">This may take ${Math.ceil(maxPages * 0.5 / 60)} to ${Math.ceil(maxPages * 2 / 60)} minutes...</p>`;
+
+    const formData = new FormData();
+    formData.append('seed_url', seedUrl);
+    formData.append('max_pages', maxPages);
+
+    fetch('/crawl_website', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            let html = `<div class="result-box">`;
+            html += `<h3 class="success">✓ Website Crawled Successfully!</h3>`;
+
+            // Stats
+            html += `<div style="background:#1a1d24; padding:15px; border-radius:6px; margin:15px 0;">`;
+            html += `<h4>📊 Crawl Statistics</h4>`;
+            html += `<p><strong>Pages Attempted:</strong> ${data.pages_crawled}</p>`;
+            html += `<p><strong>Pages Successful:</strong> ${data.pages_successful}</p>`;
+
+            if (data.pages_errored > 0) {
+                html += `<p><strong>Pages with Errors:</strong> ${data.pages_errored}</p>`;
+                html += `<p style="color:#9ca3af; font-size:13px; margin-left:20px;">`;
+                if (data.errors['404'] > 0) html += `404 Not Found: ${data.errors['404']}<br>`;
+                if (data.errors['403'] > 0) html += `403 Forbidden: ${data.errors['403']}<br>`;
+                if (data.errors['500'] > 0) html += `500 Server Error: ${data.errors['500']}<br>`;
+                if (data.errors['timeout'] > 0) html += `Timeout: ${data.errors['timeout']}<br>`;
+                if (data.errors['connection'] > 0) html += `Connection Error: ${data.errors['connection']}<br>`;
+                if (data.errors['other'] > 0) html += `Other Errors: ${data.errors['other']}<br>`;
+                html += `</p>`;
+            }
+
+            html += `<p><strong>New Systems Found:</strong> ${data.systems_found}</p>`;
+
+            if (data.systems_skipped_duplicates > 0) {
+                html += `<p style="color:#f59e0b;"><strong>⚠️ Duplicates Skipped:</strong> ${data.systems_skipped_duplicates}</p>`;
+                html += `<p style="color:#9ca3af; font-size:13px;">Systems with matching names were already in database and were not added again.</p>`;
+            }
+            html += `</div>`;
+
+            if (data.systems_found > 0) {
+                html += `<h4>Extracted Systems:</h4>`;
+
+                // Group by domain
+                const byDomain = {};
+                data.systems.forEach(sys => {
+                    if (!byDomain[sys.domain]) {
+                        byDomain[sys.domain] = [];
+                    }
+                    byDomain[sys.domain].push(sys);
+                });
+
+                // Display grouped
+                Object.keys(byDomain).sort().forEach(domain => {
+                    html += `<h5 style="color:#3b82f6; margin-top:15px;">${domain} (${byDomain[domain].length})</h5>`;
+
+                    byDomain[domain].forEach(sys => {
+                        html += `<div style="margin:10px 0; padding:10px; background:#1a1d24; border-radius:6px;">`;
+                        html += `<strong>${sys.name}</strong><br>`;
+                        html += `<span style="color:#9ca3af; font-size:13px;">Mechanisms: ${sys.mechanisms.join(', ')}</span><br>`;
+                        html += `<span style="color:#9ca3af; font-size:12px;">${sys.citation}</span>`;
+                        html += `</div>`;
+                    });
+                });
+
+                html += `<p class="success" style="margin-top:20px;">✓ All new systems added to database!</p>`;
+            } else if (data.pages_successful > 0) {
+                html += `<p class="warning">⚠️ No new systems found. Pages were crawled but either:</p>`;
+                html += `<ul style="color:#9ca3af;">`;
+                html += `<li>No extractable content on pages</li>`;
+                html += `<li>All systems already exist in database (duplicates)</li>`;
+                html += `<li>Try increasing max pages or try a different site</li>`;
+                html += `</ul>`;
+            } else {
+                html += `<p class="error">✗ All pages encountered errors. Site may be:</p>`;
+                html += `<ul style="color:#9ca3af;">`;
+                html += `<li>Blocking web scraping</li>`;
+                html += `<li>Temporarily down</li>`;
+                html += `<li>Requiring authentication</li>`;
+                html += `</ul>`;
+            }
+
+            html += `</div>`;
+            resultDiv.innerHTML = html;
+        } else {
+            let html = `<div class="result-box">`;
+            html += `<p class="error">✗ Error: ${data.error}</p>`;
+
+            if (data.error.includes('dependencies')) {
+                html += `<p class="warning">⚠️ Install missing packages:</p>`;
+                html += `<code>pip install requests beautifulsoup4</code>`;
+            }
+
+            html += `</div>`;
+            resultDiv.innerHTML = html;
+        }
+    })
+    .catch(error => {
+        resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Network error: ${error}</p></div>`;
+    });
+}
+
+function clearODEForm() {
+    document.getElementById('csvData').value = '';
+    document.getElementById('odeResult').innerHTML = '';
+}
+
+// Extract from paper
+function extractPaper() {
+    const title = document.getElementById('paperTitle').value;
+    const authors = document.getElementById('paperAuthors').value;
+    const year = document.getElementById('paperYear').value;
+    const abstract = document.getElementById('paperAbstract').value;
+
+    if (!abstract) {
+        alert('Please paste a paper abstract');
+        return;
+    }
+
+    const resultDiv = document.getElementById('paperResult');
+    resultDiv.innerHTML = '<p>⏳ Extracting systems...</p>';
+
+    const formData = new FormData();
+    formData.append('paper_title', title);
+    formData.append('authors', authors);
+    formData.append('year', year);
+    formData.append('abstract', abstract);
+
+    fetch('/extract_paper', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            let html = `<div class="result-box">`;
+            html += `<h3 class="success">✓ Found ${data.systems_found} System(s)!</h3>`;
+
+            data.systems.forEach((sys, i) => {
+                html += `<div style="margin:15px 0; padding:15px; background:#1a1d24; border-radius:6px;">`;
+                html += `<h4>${i+1}. ${sys.name}</h4>`;
+                html += `<p><strong>Domain:</strong> ${sys.domain}</p>`;
+                html += `<p><strong>Mechanisms:</strong> ${sys.mechanisms.join(', ')}</p>`;
+                html += `<p><strong>Citation:</strong> ${sys.citation}</p>`;
+                html += `</div>`;
+            });
+
+            html += `<p class="success">✓ Systems added to database!</p>`;
+            html += `</div>`;
+            resultDiv.innerHTML = html;
+        } else {
+            resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Error: ${data.error}</p></div>`;
+        }
+    })
+    .catch(error => {
+        resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Network error: ${error}</p></div>`;
+    });
+}
+
+// Search web for papers OR fetch from URL
+function searchWeb() {
+    const query = document.getElementById('searchQuery').value.trim();
+
+    if (!query) {
+        alert('Please enter a search query or URL');
+        return;
+    }
+
+    const resultDiv = document.getElementById('searchResult');
+
+    // Check if input is a URL
+    const isUrl = query.startsWith('http://') || query.startsWith('https://');
+
+    if (isUrl) {
+        // Fetch content from URL
+        resultDiv.innerHTML = '<p>⏳ Fetching content from URL...</p>';
+
+        const formData = new FormData();
+        formData.append('url', query);
+
+        fetch('/fetch_url', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                let html = `<div class="result-box">`;
+                html += `<h3 class="success">✓ Fetched from URL!</h3>`;
+                html += `<p><strong>Title:</strong> ${data.title}</p>`;
+                html += `<p><strong>URL:</strong> <a href="${data.url}" target="_blank" style="color:#3b82f6;">${data.url}</a></p>`;
+                html += `<h4>Found ${data.systems_found} System(s):</h4>`;
+
+                data.systems.forEach((sys, i) => {
+                    html += `<div style="margin:15px 0; padding:15px; background:#1a1d24; border-radius:6px;">`;
+                    html += `<h4>${i+1}. ${sys.name}</h4>`;
+                    html += `<p><strong>Domain:</strong> ${sys.domain}</p>`;
+                    html += `<p><strong>Mechanisms:</strong> ${sys.mechanisms.join(', ')}</p>`;
+                    html += `<p><strong>Citation:</strong> ${sys.citation}</p>`;
+                    html += `</div>`;
+                });
+
+                html += `<p class="success">✓ Systems added to database!</p>`;
+                html += `</div>`;
+                resultDiv.innerHTML = html;
+            } else {
+                let html = `<div class="result-box">`;
+                html += `<p class="error">✗ Error: ${data.error}</p>`;
+
+                if (data.error.includes('dependencies')) {
+                    html += `<p class="warning">⚠️ Install missing packages:</p>`;
+                    html += `<code>pip install requests beautifulsoup4</code>`;
+                }
+
+                html += `<p style="margin-top:15px;">💡 <strong>Alternative:</strong> Copy the text from the page and use "Extract from Paper" tab instead.</p>`;
+                html += `</div>`;
+                resultDiv.innerHTML = html;
+            }
+        })
+        .catch(error => {
+            resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Network error: ${error}</p></div>`;
+        });
+
+    } else {
+        // Normal search behavior
+        const searchGoogle = document.getElementById('searchGoogle').checked;
+        const searchArxiv = document.getElementById('searchArxiv').checked;
+        const searchPubmed = document.getElementById('searchPubmed').checked;
+
+        let html = '<div class="result-box">';
+        html += '<h3>🔍 Search Results</h3>';
+        html += '<p class="warning">⚠️ Opening search in new tabs...</p>';
+
+        if (searchGoogle) {
+            const googleUrl = `https://scholar.google.com/scholar?q=${encodeURIComponent(query)}`;
+            html += `<p>📚 <a href="${googleUrl}" target="_blank" style="color:#3b82f6;">Google Scholar: ${query}</a></p>`;
+            window.open(googleUrl, '_blank');
+        }
+
+        if (searchArxiv) {
+            const arxivUrl = `https://arxiv.org/search/?query=${encodeURIComponent(query)}&searchtype=all`;
+            html += `<p>📄 <a href="${arxivUrl}" target="_blank" style="color:#3b82f6;">arXiv: ${query}</a></p>`;
+            window.open(arxivUrl, '_blank');
+        }
+
+        if (searchPubmed) {
+            const pubmedUrl = `https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(query)}`;
+            html += `<p>🔬 <a href="${pubmedUrl}" target="_blank" style="color:#3b82f6;">PubMed: ${query}</a></p>`;
+            window.open(pubmedUrl, '_blank');
+        }
+
+        html += '<p style="margin-top:20px;">💡 <strong>How to use:</strong></p>';
+        html += '<ol style="color:#9ca3af;">';
+        html += '<li>Find papers in the opened tabs</li>';
+        html += '<li>Copy the abstract of interesting papers</li>';
+        html += '<li>Go to "Extract from Paper" tab</li>';
+        html += '<li>Paste the abstract and extract systems!</li>';
+        html += '</ol>';
+        html += '<hr style="margin:20px 0; border-color:#2a2d35;">';
+        html += '<p class="success">💡 <strong>Tip:</strong> You can also paste a <strong>direct URL</strong> here and it will automatically fetch and extract!</p>';
+        html += '</div>';
+
+        resultDiv.innerHTML = html;
+    }
+}
+
+// Learn ODE from data
+function learnODE() {
+    const dataInput = document.getElementById('csvData').value;
+    const format = document.getElementById('dataFormat').value;
+
+    if (!dataInput) {
+        alert('Please paste data');
+        return;
+    }
+
+    const resultDiv = document.getElementById('odeResult');
+    resultDiv.innerHTML = '<p>⏳ Learning equation...</p>';
+
+    try {
+        // Parse data based on format
+        const { timeData, valueData } = parseDataByFormat(dataInput, format);
+
+        if (timeData.length < 3) {
+            resultDiv.innerHTML = '<div class="result-box"><p class="error">✗ Need at least 3 data points</p></div>';
+            return;
+        }
+
+        // Convert back to CSV for backend
+        const csvData = timeData.map((t, i) => `${t},${valueData[i]}`).join('\n');
+
+        const formData = new FormData();
+        formData.append('csv_data', csvData);
+
+        fetch('/learn_ode', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                let html = `<div class="result-box">`;
+                html += `<h3 class="success">✓ Learned Equation!</h3>`;
+                html += `<p><strong>Equation:</strong></p>`;
+                html += `<code>${data.equation}</code>`;
+                html += `<p><strong>Accuracy (R²):</strong> ${(data.score * 100).toFixed(1)}%</p>`;
+                html += `<p><strong>Detected Mechanisms:</strong> ${data.mechanisms.join(', ')}</p>`;
+                html += `<p><strong>Coefficients:</strong> ${data.coefficients.map(c => c.toFixed(4)).join(', ')}</p>`;
+                html += `</div>`;
+                resultDiv.innerHTML = html;
+            } else {
+                resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Error: ${data.error}</p></div>`;
+            }
+        })
+        .catch(error => {
+            resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Network error: ${error}</p></div>`;
+        });
+    } catch (e) {
+        resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Parse error: ${e.message}</p></div>`;
+    }
+}
+
+// Load database stats
+function loadStats() {
+    const resultDiv = document.getElementById('statsResult');
+    resultDiv.innerHTML = '<p>⏳ Loading stats...</p>';
+
+    fetch('/database_stats')
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const stats = data.stats;
+            let html = `<div class="result-box">`;
+            html += `<h3>📊 Database Overview</h3>`;
+            html += `<p><strong>Total Systems:</strong> ${stats.total_systems}</p>`;
+            html += `<p><strong>With Citations:</strong> ${stats.with_citations}</p>`;
+            html += `<p><strong>Without Citations:</strong> ${stats.without_citations}</p>`;
+            html += `<p><strong>Domains:</strong> ${Object.keys(stats.domains).length}</p>`;
+            html += `<p><strong>Mechanisms:</strong> ${Object.keys(stats.mechanisms).length}</p>`;
+
+            html += `<h4>Top Domains:</h4><ul>`;
+            const sortedDomains = Object.entries(stats.domains).sort((a, b) => b[1] - a[1]).slice(0, 5);
+            sortedDomains.forEach(([domain, count]) => {
+                html += `<li>${domain}: ${count} systems</li>`;
+            });
+            html += `</ul>`;
+
+            html += `<h4>Top Mechanisms:</h4><ul>`;
+            const sortedMechs = Object.entries(stats.mechanisms).sort((a, b) => b[1] - a[1]).slice(0, 10);
+            sortedMechs.forEach(([mech, count]) => {
+                html += `<li>${mech}: ${count} systems</li>`;
+            });
+            html += `</ul>`;
+
+            html += `<h4>Sources:</h4><ul>`;
+            Object.entries(stats.sources).forEach(([source, count]) => {
+                html += `<li>${source}: ${count} systems</li>`;
+            });
+            html += `</ul>`;
+
+            html += `</div>`;
+            resultDiv.innerHTML = html;
+        } else {
+            resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Error: ${data.error}</p></div>`;
+        }
+    })
+    .catch(error => {
+        resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Network error: ${error}</p></div>`;
     });
 }
 
 </script>
-
-{% endif %}
-
-</div>
 
 </body>
 </html>

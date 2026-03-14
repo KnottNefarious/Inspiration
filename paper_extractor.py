@@ -20,7 +20,7 @@ MECHANISM_KEYWORDS = {
     ],
     "optimization": [
         "optimization", "optimize", "maximization", "minimization",
-        "gradient descent", "optimal", "improve", "enhance"
+        "gradient descent", "optimal", "improve", "enhance", "best", "efficient"
     ],
     "competition": [
         "competition", "competitive", "rivalry", "contest",
@@ -28,7 +28,7 @@ MECHANISM_KEYWORDS = {
     ],
     "feedback": [
         "feedback", "feedback loop", "negative feedback", "positive feedback",
-        "homeostasis", "regulation", "control loop"
+        "homeostasis", "regulation", "control loop", "recursive", "iterative"
     ],
     "selection": [
         "selection", "natural selection", "evolutionary selection",
@@ -53,6 +53,23 @@ MECHANISM_KEYWORDS = {
     "reaction": [
         "reaction", "chemical reaction", "catalysis",
         "reaction-diffusion", "autocatalytic"
+    ],
+    # NEW: Math-specific mechanisms
+    "pattern": [
+        "pattern", "sequence", "series", "formula", "recurrence",
+        "mathematical pattern", "number pattern", "algebraic pattern"
+    ],
+    "recursion": [
+        "recursion", "recursive", "recurrence relation", "iterative",
+        "self-referential", "inductive", "induction"
+    ],
+    "symmetry": [
+        "symmetry", "symmetric", "invariant", "transformation",
+        "group theory", "symmetrical"
+    ],
+    "convergence": [
+        "convergence", "converge", "limit", "approach", "asymptotic",
+        "tends to", "approaches"
     ]
 }
 
@@ -67,7 +84,9 @@ DOMAIN_KEYWORDS = {
     "computer science": ["algorithm", "computational", "network", "neural", "machine learning", "AI"],
     "neuroscience": ["neural", "brain", "neuron", "synaptic", "cognitive"],
     "chemistry": ["chemical", "molecule", "catalyst", "reaction"],
-    "mathematics": ["mathematical", "theorem", "proof", "equation"],
+    "mathematics": ["mathematical", "theorem", "proof", "equation", "formula", "number theory", 
+                    "algebra", "geometry", "calculus", "series", "sequence", "combinatorics",
+                    "sum", "power", "polynomial", "prime"],
     "economics": ["economic", "market", "trade", "financial"],
     "social": ["social", "society", "cultural", "human"],
     "engineering": ["engineering", "system design", "control"],
@@ -108,6 +127,11 @@ class PaperExtractor:
         # Extract system names (heuristic: look for capitalized multi-word phrases)
         system_names = self._extract_system_names(text)
 
+        # FALLBACK: If no system names found, use the paper title or generic name
+        if not system_names:
+            title = paper_metadata.get('title', 'Unknown System')
+            system_names = [title]
+
         # For each potential system name
         for name in system_names:
             # Extract mechanisms mentioned near this system
@@ -119,23 +143,36 @@ class PaperExtractor:
             # Determine type (simplified)
             sys_type = self._infer_type(text, name)
 
-            if mechanisms:  # Only add if we found at least one mechanism
-                system = System(
-                    name=name,
-                    domain=domain,
-                    type=sys_type,
-                    mechanisms=mechanisms,
-                    paper_title=paper_metadata.get('title'),
-                    authors=paper_metadata.get('authors'),
-                    year=paper_metadata.get('year'),
-                    doi=paper_metadata.get('doi'),
-                    url=paper_metadata.get('url'),
-                    abstract=text[:500] if len(text) > 500 else text,
-                    added_by="paper_extraction",
-                    added_date=datetime.now().isoformat()
-                )
+            # CHANGED: Create system even if no specific mechanisms found
+            # Use generic mechanism based on domain
+            if not mechanisms:
+                # Add generic mechanism based on domain
+                if domain == "mathematics":
+                    mechanisms = ["pattern"]  # Math usually involves patterns
+                elif domain == "computer science":
+                    mechanisms = ["optimization"]
+                elif domain == "biology":
+                    mechanisms = ["adaptation"]
+                else:
+                    mechanisms = ["feedback"]  # Generic fallback
 
-                systems.append(system)
+            # Now create the system
+            system = System(
+                name=name,
+                domain=domain,
+                type=sys_type,
+                mechanisms=mechanisms,
+                paper_title=paper_metadata.get('title'),
+                authors=paper_metadata.get('authors'),
+                year=paper_metadata.get('year'),
+                doi=paper_metadata.get('doi'),
+                url=paper_metadata.get('url'),
+                abstract=text[:500] if len(text) > 500 else text,
+                added_by="paper_extraction",
+                added_date=datetime.now().isoformat()
+            )
+
+            systems.append(system)
 
         return systems
 
