@@ -1,30 +1,824 @@
 [
-{
-"name": "Fluid Dynamics",
-"domain": "physics",
-"structures": ["field","flow"],
-"mechanisms": ["diffusion","feedback","chaos"],
-"math_models": []
-},
-{
-"name": "Market Economy",
-"domain": "economics",
-"structures": ["network"],
-"mechanisms": ["competition","optimization"],
-"math_models": []
-},
-{
-"name": "Neural Network",
-"domain": "computer science",
-"structures": ["graph"],
-"mechanisms": ["adaptation","optimization"],
-"math_models": []
-},
-{
-"name": "Traffic Network",
-"domain": "transport",
-"structures": ["network"],
-"mechanisms": ["diffusion","congestion"],
-"math_models": []
-}
+  {
+    "name": "Fluid Dynamics",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "feedback",
+      "chaos"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Heat Diffusion",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "diffusion"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Wave Equation",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "oscillation",
+      "propagation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Quantum Wavefunction",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "oscillation",
+      "interference"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Gravitational N-body",
+    "domain": "physics",
+    "structures": [
+      "particles"
+    ],
+    "mechanisms": [
+      "attraction",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Magnetic Field Dynamics",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "feedback",
+      "propagation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Plasma Dynamics",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Turbulent Flow",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "chaos",
+      "diffusion"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Laser Oscillation",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "oscillation",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Electromagnetic Field",
+    "domain": "physics",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "propagation",
+      "oscillation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Population Growth",
+    "domain": "biology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "competition",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Predator Prey",
+    "domain": "biology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "competition",
+      "feedback",
+      "oscillation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Gene Regulation Network",
+    "domain": "biology",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "feedback",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Neural Activity",
+    "domain": "biology",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "adaptation",
+      "feedback",
+      "diffusion"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Immune Response",
+    "domain": "biology",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "adaptation",
+      "selection",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Ecosystem Dynamics",
+    "domain": "biology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "competition",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Bacterial Colony Growth",
+    "domain": "biology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "competition"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Cell Signaling",
+    "domain": "biology",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "propagation",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Protein Interaction Network",
+    "domain": "biology",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "interaction",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Evolutionary Dynamics",
+    "domain": "biology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "selection",
+      "mutation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Neural Network",
+    "domain": "neuroscience",
+    "structures": [
+      "graph"
+    ],
+    "mechanisms": [
+      "adaptation",
+      "optimization",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Synaptic Plasticity",
+    "domain": "neuroscience",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "adaptation",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Brain Oscillations",
+    "domain": "neuroscience",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "oscillation",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Cortical Wave Propagation",
+    "domain": "neuroscience",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "propagation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Decision Networks",
+    "domain": "neuroscience",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "competition",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Distributed Systems",
+    "domain": "computer science",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "coordination",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "PageRank",
+    "domain": "computer science",
+    "structures": [
+      "graph"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "optimization"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Genetic Algorithm",
+    "domain": "computer science",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "selection",
+      "mutation",
+      "optimization"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Reinforcement Learning",
+    "domain": "computer science",
+    "structures": [
+      "agent"
+    ],
+    "mechanisms": [
+      "adaptation",
+      "optimization",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Swarm Optimization",
+    "domain": "computer science",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "adaptation",
+      "diffusion"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Ant Colony Optimization",
+    "domain": "computer science",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "optimization"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Consensus Algorithm",
+    "domain": "computer science",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "coordination",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Graph Neural Network",
+    "domain": "computer science",
+    "structures": [
+      "graph"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Monte Carlo Search",
+    "domain": "computer science",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "exploration",
+      "selection"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Game AI Dynamics",
+    "domain": "computer science",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "competition",
+      "optimization"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Market Economy",
+    "domain": "economics",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "competition",
+      "adaptation",
+      "optimization"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Supply Demand Model",
+    "domain": "economics",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "feedback",
+      "competition"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Financial Market Dynamics",
+    "domain": "economics",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "competition",
+      "feedback",
+      "chaos"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Innovation Diffusion",
+    "domain": "economics",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Auction Dynamics",
+    "domain": "economics",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "competition",
+      "optimization"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Game Theory Dynamics",
+    "domain": "economics",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "competition",
+      "selection"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Economic Growth",
+    "domain": "economics",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "adaptation",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Rumor Spread",
+    "domain": "social",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "diffusion"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Opinion Dynamics",
+    "domain": "social",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "competition",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Social Influence",
+    "domain": "social",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "propagation",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Cultural Evolution",
+    "domain": "social",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "selection",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Information Cascades",
+    "domain": "social",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Collective Behavior",
+    "domain": "social",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "coordination",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Traffic Network",
+    "domain": "engineering",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "congestion",
+      "diffusion",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Power Grid",
+    "domain": "engineering",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "coordination",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Control Systems",
+    "domain": "engineering",
+    "structures": [
+      "feedback loop"
+    ],
+    "mechanisms": [
+      "feedback",
+      "optimization"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Internet Routing",
+    "domain": "engineering",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization",
+      "diffusion"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Sensor Networks",
+    "domain": "engineering",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "coordination",
+      "propagation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Robotics Swarms",
+    "domain": "engineering",
+    "structures": [
+      "agents"
+    ],
+    "mechanisms": [
+      "coordination",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Chemical Reaction",
+    "domain": "chemistry",
+    "structures": [
+      "particles"
+    ],
+    "mechanisms": [
+      "reaction",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Reaction Diffusion",
+    "domain": "chemistry",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "reaction"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Oscillating Reaction",
+    "domain": "chemistry",
+    "structures": [
+      "particles"
+    ],
+    "mechanisms": [
+      "oscillation",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Catalytic Networks",
+    "domain": "chemistry",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "reaction",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Food Web",
+    "domain": "ecology",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "competition",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Species Migration",
+    "domain": "ecology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Forest Dynamics",
+    "domain": "ecology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "competition",
+      "adaptation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Disease Spread",
+    "domain": "epidemiology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "infection"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Epidemic Models",
+    "domain": "epidemiology",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "diffusion",
+      "feedback"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Lotka Volterra Dynamics",
+    "domain": "math",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "competition",
+      "oscillation"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Replicator Dynamics",
+    "domain": "math",
+    "structures": [
+      "population"
+    ],
+    "mechanisms": [
+      "selection",
+      "competition"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Gradient Flow",
+    "domain": "math",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Diffusion Equation",
+    "domain": "math",
+    "structures": [
+      "field"
+    ],
+    "mechanisms": [
+      "diffusion"
+    ],
+    "math_models": []
+  },
+  {
+    "name": "Kuramoto Oscillators",
+    "domain": "math",
+    "structures": [
+      "network"
+    ],
+    "mechanisms": [
+      "oscillation",
+      "coordination"
+    ],
+    "math_models": []
+  }
 ]

@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request
+import traceback
+
+# UPDATE THIS LINE to match your current engine file
 from inspiration_engine_phase2 import InspirationEngine
 
 app = Flask(__name__)
@@ -10,20 +13,30 @@ engine = InspirationEngine()
 def home():
 
     result = None
+    error = None
 
     if request.method == "POST":
 
-        if request.form.get("mode") == "discover":
+        try:
+            if request.form.get("mode") == "discover":
 
-            result = engine.discovery_mode()
+                result = engine.discovery_mode()
 
-        else:
+            else:
 
-            subject = request.form["subject"]
+                subject = request.form.get("subject", "")
 
-            result = engine.solve(subject)
+                result = engine.solve(subject)
 
-    return render_template("index.html", result=result)
+        except Exception as e:
+            # Capture the full error
+            error = {
+                'message': str(e),
+                'traceback': traceback.format_exc(),
+                'type': type(e).__name__
+            }
+
+    return render_template("index.html", result=result, error=error)
 
 
 app.run(host="0.0.0.0", port=5000)

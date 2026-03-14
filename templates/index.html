@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <title>Inspiration Engine</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
-
 body{
 font-family:Arial, Helvetica, sans-serif;
 background:#0f1116;
 color:#e5e7eb;
 margin:0;
 }
-
 .container{
 max-width:900px;
 margin:auto;
 padding:20px;
 }
-
 h1{
 text-align:center;
 }
-
 .card{
 background:#1c1f26;
 padding:20px;
@@ -33,7 +25,6 @@ border-radius:10px;
 margin-bottom:20px;
 position: relative;
 }
-
 input{
 width:100%;
 padding:12px;
@@ -42,7 +33,6 @@ border-radius:6px;
 margin-bottom:15px;
 font-size:16px;
 }
-
 button{
 padding:12px 20px;
 border:none;
@@ -50,17 +40,14 @@ border-radius:6px;
 cursor:pointer;
 margin-right:10px;
 }
-
 .solve{
 background:#3b82f6;
 color:white;
 }
-
 .discover{
 background:#10b981;
 color:white;
 }
-
 .copy-btn{
 background:#8b5cf6;
 color:white;
@@ -70,21 +57,17 @@ right: 20px;
 padding: 10px 20px;
 font-size: 14px;
 }
-
 .copy-btn:hover{
 background:#7c3aed;
 }
-
 .copy-success{
 background:#10b981 !important;
 }
-
 select{
 padding:10px;
 margin-top:10px;
 border-radius:6px;
 }
-
 code{
 background:#111827;
 padding:10px;
@@ -93,11 +76,9 @@ border-radius:6px;
 margin-top:10px;
 white-space:pre-wrap;
 }
-
 ul{
 padding-left:20px;
 }
-
 .input-display{
 background:#111827;
 padding:15px;
@@ -105,24 +86,19 @@ border-radius:6px;
 margin-bottom:15px;
 border-left: 4px solid #3b82f6;
 }
-
 .input-label{
 color:#9ca3af;
 font-size:12px;
 text-transform:uppercase;
 margin-bottom:5px;
 }
-
 .input-text{
 font-size:18px;
 color:#e5e7eb;
 font-weight:500;
 }
-
 </style>
-
 </head>
-
 <body>
 
 <div class="container">
@@ -130,51 +106,74 @@ font-weight:500;
 <h1>Inspiration Engine</h1>
 
 <div class="card">
-
 <form method="POST">
-
 <input name="subject" placeholder="Enter problem or project">
-
 <button class="solve" type="submit" name="mode" value="solve">
 Solve Problem
 </button>
-
 <button class="discover" type="submit" name="mode" value="discover">
 Discovery Mode
 </button>
-
 </form>
+</div>
+
+{% if error %}
+
+<div class="card" style="border-left: 4px solid #ef4444;">
+
+<h2 style="color:#ef4444;">❌ Error Occurred</h2>
+
+<h3>Error Type</h3>
+<p style="color:#fca5a5;">{{ error.type }}</p>
+
+<h3>Error Message</h3>
+<p style="color:#fca5a5;">{{ error.message }}</p>
+
+<h3>Full Traceback (Copy This!)</h3>
+<button class="copy-btn" style="position:static; margin-bottom:10px;" onclick="copyError()">📋 Copy Error</button>
+<code id="errorTrace" style="color:#fca5a5; max-height:400px; overflow-y:auto;">{{ error.traceback }}</code>
 
 </div>
+
+<script>
+function copyError() {
+    const errorText = document.getElementById('errorTrace').textContent;
+    navigator.clipboard.writeText(errorText).then(() => {
+        alert('Error copied! Paste it to show Claude.');
+    });
+}
+</script>
+
+{% endif %}
 
 {% if result %}
 
 <div class="card">
 
-<button class="copy-btn" onclick="copyResults()">📋 Copy All Results</button>
+<button class="copy-btn" onclick="copyResults()">📋 Copy Results</button>
 
 <!-- Display the input -->
+{% if result.subject %}
 <div class="input-display">
 <div class="input-label">Your Input</div>
-<div class="input-text">{{ result.subject }}</div>
+<div class="input-text" id="userInput">{{ result.subject }}</div>
 </div>
+{% endif %}
 
 <h3>Model Type</h3>
-<p>{{result.model_type}}</p>
+<p id="modelType">{{result.model_type}}</p>
 
 <h3>Systems Used</h3>
-
-<ul>
+<ul id="systemsList">
 {% for s in result.systems %}
 <li>{{s}}</li>
 {% endfor %}
 </ul>
 
 <h3>Mechanisms</h3>
-<p>{{result.mechanisms}}</p>
+<p id="mechanisms">{{result.mechanisms}}</p>
 
 <h3>Equation Format</h3>
-
 <select id="mathFormat">
 <option value="sympy">Symbolic</option>
 <option value="readable">Readable</option>
@@ -182,115 +181,166 @@ Discovery Mode
 <option value="explain">Explanation</option>
 </select>
 
-<code id="equationDisplay"
-data-equation="{{result.equation}}">
+<code id="equationDisplay" data-equation="{{result.equation}}">
 {{result.equation}}
 </code>
 
 <h3>Suggested Algorithm</h3>
-<p>{{result.algorithm}}</p>
+<p id="algorithm">{{result.algorithm}}</p>
 
 <h3>Mathematical Analysis</h3>
-<p>{{result.analysis}}</p>
+<p id="analysis">{{result.analysis}}</p>
 
 {% if result.simulation %}
 <h3>Simulation Results</h3>
-<p><strong>Validated:</strong> {{ result.simulation.validated }}</p>
-<p><strong>Confidence:</strong> {{ "%.0f"|format(result.simulation.confidence * 100) }}%</p>
+<div id="simulation">
+<p><strong>Validated:</strong> <span id="simValidated">{{ result.simulation.validated }}</span></p>
+<p><strong>Confidence:</strong> <span id="simConfidence">{{ "%.0f"|format(result.simulation.confidence * 100) }}%</span></p>
 <p><strong>Behaviors:</strong></p>
-<ul>
+<ul id="simBehaviors">
 {% for behavior, present in result.simulation.behaviors.items() %}
 <li>{{ behavior }}: {{ "✓" if present else "✗" }}</li>
 {% endfor %}
 </ul>
+</div>
 {% endif %}
 
 <h3>Equilibria</h3>
-<p>{{result.equilibria}}</p>
+<p id="equilibria">{{result.equilibria}}</p>
 
 <h3>Symmetries</h3>
-<p>{{result.symmetries}}</p>
+<p id="symmetries">{{result.symmetries}}</p>
 
 <h3>Invariants</h3>
-<p>{{result.invariants}}</p>
+<p id="invariants">{{result.invariants}}</p>
 
 </div>
 
 <script>
 
+// Equation format switcher
 const display = document.getElementById("equationDisplay")
 const eq = display.dataset.equation
 
 document.getElementById("mathFormat").addEventListener("change", function(){
+    let format = this.value
 
-let format = this.value
+    if(format === "sympy"){
+        display.textContent = eq
+    }
 
-if(format === "sympy"){
-display.textContent = eq
-}
+    if(format === "readable"){
+        display.textContent =
+        eq.replace(/Derivative\(x\(t\), t\)/g,"dx/dt")
+        .replace(/Derivative\(x\(t\), \(t, 2\)\)/g,"d²x/dt²")
+        .replace(/\*/g," ")
+    }
 
-if(format === "readable"){
-display.textContent =
-eq.replace(/Derivative\(x\(t\), t\)/g,"dx/dt")
-.replace(/Derivative\(x\(t\), \(t, 2\)\)/g,"d²x/dt²")
-.replace(/\*/g," ")
-}
+    if(format === "latex"){
+        display.textContent =
+        "\\frac{dx}{dt} = D\\frac{d^2x}{dt^2} + a x(1-x) - \\eta \\nabla f + kx"
+    }
 
-if(format === "latex"){
-display.textContent =
-"\\frac{dx}{dt} = D\\frac{d^2x}{dt^2} + a x(1-x) - \\eta \\nabla f + kx"
-}
-
-if(format === "explain"){
-display.textContent =
-"Rate of change equals diffusion plus nonlinear competition plus optimization pressure plus feedback."
-}
-
+    if(format === "explain"){
+        display.textContent =
+        "Rate of change equals diffusion plus nonlinear competition plus optimization pressure plus feedback."
+    }
 })
 
+// Copy function
 function copyResults() {
     const btn = document.querySelector('.copy-btn');
 
-    // Build the text to copy
     let text = `INSPIRATION ENGINE RESULTS\n`;
     text += `${"=".repeat(60)}\n\n`;
 
-    text += `INPUT: {{ result.subject }}\n\n`;
+    // Get input
+    const inputEl = document.getElementById('userInput');
+    if (inputEl) {
+        text += `INPUT: ${inputEl.textContent}\n\n`;
+    }
 
-    text += `MODEL TYPE: {{ result.model_type }}\n\n`;
+    // Get model type
+    const modelEl = document.getElementById('modelType');
+    if (modelEl) {
+        text += `MODEL TYPE: ${modelEl.textContent}\n\n`;
+    }
 
-    text += `SYSTEMS USED:\n`;
-    {% for s in result.systems %}
-    text += `  - {{ s }}\n`;
-    {% endfor %}
-    text += `\n`;
+    // Get systems
+    const systemsList = document.getElementById('systemsList');
+    if (systemsList) {
+        text += `SYSTEMS USED:\n`;
+        const systems = systemsList.querySelectorAll('li');
+        systems.forEach(s => {
+            text += `  - ${s.textContent}\n`;
+        });
+        text += `\n`;
+    }
 
-    text += `MECHANISMS: {{ result.mechanisms }}\n\n`;
+    // Get mechanisms
+    const mechEl = document.getElementById('mechanisms');
+    if (mechEl) {
+        text += `MECHANISMS: ${mechEl.textContent}\n\n`;
+    }
 
-    text += `EQUATION:\n{{ result.equation }}\n\n`;
+    // Get equation
+    const eqEl = document.getElementById('equationDisplay');
+    if (eqEl) {
+        text += `EQUATION:\n${eqEl.textContent}\n\n`;
+    }
 
-    text += `ALGORITHM: {{ result.algorithm }}\n\n`;
+    // Get algorithm
+    const algoEl = document.getElementById('algorithm');
+    if (algoEl) {
+        text += `ALGORITHM: ${algoEl.textContent}\n\n`;
+    }
 
-    text += `ANALYSIS:\n{{ result.analysis }}\n\n`;
+    // Get analysis
+    const analysisEl = document.getElementById('analysis');
+    if (analysisEl) {
+        text += `ANALYSIS:\n${analysisEl.textContent}\n\n`;
+    }
 
-    {% if result.simulation %}
-    text += `SIMULATION:\n`;
-    text += `  Validated: {{ result.simulation.validated }}\n`;
-    text += `  Confidence: {{ "%.0f"|format(result.simulation.confidence * 100) }}%\n`;
-    text += `  Behaviors:\n`;
-    {% for behavior, present in result.simulation.behaviors.items() %}
-    text += `    - {{ behavior }}: {{ "✓" if present else "✗" }}\n`;
-    {% endfor %}
-    text += `\n`;
-    {% endif %}
+    // Get simulation
+    const simEl = document.getElementById('simulation');
+    if (simEl) {
+        text += `SIMULATION:\n`;
+        const validated = document.getElementById('simValidated');
+        const confidence = document.getElementById('simConfidence');
+        if (validated) text += `  Validated: ${validated.textContent}\n`;
+        if (confidence) text += `  Confidence: ${confidence.textContent}\n`;
 
-    text += `EQUILIBRIA: {{ result.equilibria }}\n\n`;
-    text += `SYMMETRIES: {{ result.symmetries }}\n\n`;
-    text += `INVARIANTS: {{ result.invariants }}\n`;
+        const behaviors = document.getElementById('simBehaviors');
+        if (behaviors) {
+            text += `  Behaviors:\n`;
+            const items = behaviors.querySelectorAll('li');
+            items.forEach(item => {
+                text += `    - ${item.textContent}\n`;
+            });
+        }
+        text += `\n`;
+    }
+
+    // Get equilibria
+    const eqiEl = document.getElementById('equilibria');
+    if (eqiEl) {
+        text += `EQUILIBRIA: ${eqiEl.textContent}\n\n`;
+    }
+
+    // Get symmetries
+    const symEl = document.getElementById('symmetries');
+    if (symEl) {
+        text += `SYMMETRIES: ${symEl.textContent}\n\n`;
+    }
+
+    // Get invariants
+    const invEl = document.getElementById('invariants');
+    if (invEl) {
+        text += `INVARIANTS: ${invEl.textContent}\n`;
+    }
 
     // Copy to clipboard
     navigator.clipboard.writeText(text).then(() => {
-        // Show success
         const originalText = btn.textContent;
         btn.textContent = '✓ Copied!';
         btn.classList.add('copy-success');
@@ -300,8 +350,8 @@ function copyResults() {
             btn.classList.remove('copy-success');
         }, 2000);
     }).catch(err => {
-        alert('Failed to copy. Please try selecting and copying manually.');
-        console.error('Copy failed:', err);
+        alert('Copy failed. Please select and copy manually.');
+        console.error('Copy error:', err);
     });
 }
 
@@ -312,5 +362,4 @@ function copyResults() {
 </div>
 
 </body>
-
 </html>
