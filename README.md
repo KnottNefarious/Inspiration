@@ -3,6 +3,8 @@ It is what it means
 
 ## Inspiration Engine
 
+https://e64eabc8-2c1e-42e0-84f6-1e3d58636060-00-33mgc75tepvde.janeway.replit.dev:5000/
+
 A cross-domain discovery engine that searches for mathematical structures shared between different systems.
 
 Instead of starting from a fixed model or equation, the engine compares systems from many fields (biology, economics, physics, computer science, etc.) and attempts to transfer mechanisms from one domain to another.
