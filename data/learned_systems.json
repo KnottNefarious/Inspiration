@@ -5740,5 +5740,1257 @@
     "abstract": "22.51 Quantum Theory of Radiation Interactions, 2010 Final | Quantum Theory of Radiation Interactions | Nuclear Science and Engineering | MIT OpenCourseWare Browse Course Material Course Info Instructor Prof. Paola Cappellaro Departments Nuclear Science and Engineering As Taught In Fall 2012 Level Graduate Topics Engineering Nuclear Engineering Science Physics Quantum Mechanics Learning Resource Types grading Exam Solutions grading Exams notes Lecture Notes assignment Problem Sets Download Cours",
     "added_by": "paper_extraction",
     "added_date": "2026-03-14T22:43:52.188424"
+  },
+  {
+    "name": "Mathematica & Wolfram Language Tutorial: Fast Intro for Math Students",
+    "domain": "computer science",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "Mathematica & Wolfram Language Tutorial: Fast Intro for Math Students",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.wolfram.com/language/fast-introduction-for-math-students/en/",
+    "abstract": "Mathematica & Wolfram Language Tutorial: Fast Intro for Math Students Enable JavaScript to interact with content and submit forms on Wolfram websites. Learn how Get Started \u00bb Mathematica & Wolfram Language Fast Introduction for Math Students Use this tutorial to learn about solving math problems in the Wolfram Language. From basic arithmetic to integral calculus, the Wolfram Language covers a broad range of mathematics for high school and beyond. This tutorial is designed to quickly bring all le",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:43:43.347229"
+  },
+  {
+    "name": "Entering Input | Mathematica & Wolfram Language for Math Students\u2014Fast Intro",
+    "domain": "mathematics",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "pattern"
+    ],
+    "paper_title": "Entering Input | Mathematica & Wolfram Language for Math Students\u2014Fast Intro",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.wolfram.com/language/fast-introduction-for-math-students/en/entering-input/",
+    "abstract": "Entering Input | Mathematica & Wolfram Language for Math Students\u2014Fast Intro Enable JavaScript to interact with content and submit forms on Wolfram websites. Learn how Get Started \u00bb \u2039 Entering Input In a Wolfram notebook on the desktop or web, just type an input, then press SHIFT+ENTER to compute: In[1]:= X \t\t\t\t\t 2 + 2 Out[1]= In[n] and Out[n] label successive inputs and outputs. The % symbol refers to the most recent output: In[1]:= \u2a2f 1 + 2 + 3 Out[1]= In[2]:= \u2a2f % + 4 Out[2]= After you perform ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:54:12.140018"
+  },
+  {
+    "name": "Get Started | Mathematica & Wolfram Language for Math Students\u2014Fast Intro",
+    "domain": "computer science",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "Get Started | Mathematica & Wolfram Language for Math Students\u2014Fast Intro",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.wolfram.com/language/fast-introduction-for-math-students/en/get-started/",
+    "abstract": "Get Started | Mathematica & Wolfram Language for Math Students\u2014Fast Intro Enable JavaScript to interact with content and submit forms on Wolfram websites. Learn how Get Started \u00bb \u2039 Get Started... The subjects covered in this tutorial give just a taste of the computational power of the Wolfram Language. With these basics, you should be ready to explore all kinds of math problems and share your work with others... Try Mathematica for Free \u00bb Next Section \u203a Deutsch English Espa\u00f1ol Fran\u00e7ais \u65e5\u672c\u8a9e \ud55c\uad6d\uc5b4 P",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:54:12.395902"
+  },
+  {
+    "name": "Wolfram Programming Lab: Computational Thinking Starts Here",
+    "domain": "biology",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "adaptation"
+    ],
+    "paper_title": "Wolfram Programming Lab: Computational Thinking Starts Here",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "http://www.wolfram.com/programming-lab/",
+    "abstract": "Wolfram Programming Lab: Computational Thinking Starts Here Enable JavaScript to interact with content and submit forms on Wolfram websites. Learn how Start using today\u2019s most advancedprogramming language to create amazing programs, and get introduced to modern computationalthinking. Turn your ideas into reality Wolfram Programming Lab uses the Wolfram Language, the same language that powers Wolfram|Alpha and that's used in top research and development organizations worldwide. The Wolfram Langua",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:54:12.730304"
+  },
+  {
+    "name": "Proof Gallery || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "field"
+    ],
+    "mechanisms": [
+      "pattern",
+      "adaptation",
+      "oscillation",
+      "symmetry"
+    ],
+    "paper_title": "Proof Gallery || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/proof-gallery",
+    "abstract": "Proof Gallery || Math \u2229 Programming Proof GalleryMathematics (like programming) is often called an art form. This makes mathematics the art of\u00a0argument in the sense that the beauty of a proof lies in its method. An aesthetic proof is an elegant, inspired, concise, and beautiful expression. Here I present a collection of aesthetic proofs I\u2019ve come across over the years.No Background NeededArea of a triangle within a rectangle Number of games in a tournamentComputing percentages easierThe party pr",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:49.870209"
+  },
+  {
+    "name": "Making Hybrid Images || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "Making Hybrid Images || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/09/29/hybrid-images/",
+    "abstract": "Making Hybrid Images || Math \u2229 Programming Making Hybrid Images#albert einstein #art #design #fourier analysis #hybrid images #image manipulation #marilyn monroe #mathematics #mona lisa #programming #python #salvador dali #signal processing\u00a02014-09-29This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.The Mona LisaLeonardo da Vinci\u2019s Mona Lisa is one of the most famous paintings of all time. And there has always bee",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:51.412837"
+  },
+  {
+    "name": "The Blum-Blum-Shub Pseudorandom Generator || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "pattern",
+      "convergence"
+    ],
+    "paper_title": "The Blum-Blum-Shub Pseudorandom Generator || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2016/07/11/the-blum-blum-shub-pseudorandom-generator/",
+    "abstract": "The Blum-Blum-Shub Pseudorandom Generator || Math \u2229 Programming The Blum-Blum-Shub Pseudorandom Generator2016-07-11This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Problem: Design a random number generator that is computationally indistinguishable from a truly random number generator.Solution (in Python): note this solution uses the Miller-Rabin primality tester, though any primality test will do. See the github ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:51.644038"
+  },
+  {
+    "name": "Frequently Asked Questions about FHE || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "Frequently Asked Questions about FHE || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/frequently-asked-questions-about-fhe/",
+    "abstract": "Frequently Asked Questions about FHE || Math \u2229 Programming Frequently Asked Questions about FHE#cryptography #fhe #homomorphic encryption #mathematics #programming\u00a02025-07-18I work on homomorphic encryption (HE or FHE for \u201cfully\u201d homomorphic encryption) and I have written a lot about it on this blog (see the relevant tag). This article is a collection of short answers to questions I see on various threads and news aggregators discussing FHE.FactsIf a service uses FHE and can respond to encrypted",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:51.868354"
+  },
+  {
+    "name": "Miller-Rabin Primality Test || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "recursion",
+      "diffusion"
+    ],
+    "paper_title": "Miller-Rabin Primality Test || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2013/06/16/miller-rabin-primality-test/",
+    "abstract": "Miller-Rabin Primality Test || Math \u2229 Programming Miller-Rabin Primality Test#computational complexity #miller-rabin #primes #programming #python #random number generators #randomized algorithm\u00a02013-06-16This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Problem: Determine if a number is prime, with an acceptably small error rate.Solution: (in Python)import random def decompose(n): exponentOfTwo = 0 while n % 2 == ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:52.082880"
+  },
+  {
+    "name": "Finding the majority element of a stream || Math \u2229 Programming",
+    "domain": "biology",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "adaptation"
+    ],
+    "paper_title": "Finding the majority element of a stream || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2015/03/09/finding-the-majority-element-of-a-stream/",
+    "abstract": "Finding the majority element of a stream || Math \u2229 Programming Finding the majority element of a stream#data mining #frequency moments #mathematics #programming #python #streaming algorithms #streaming data #sublinear space\u00a02015-03-09This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Problem: Given a massive data stream of $ n$ values in $ \\{ 1, 2, \\dots, m \\}$ and the guarantee that one value occurs more than $ n/",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:52.327814"
+  },
+  {
+    "name": "My Graduate Career in Math || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization",
+      "adaptation",
+      "symmetry"
+    ],
+    "paper_title": "My Graduate Career in Math || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2025/05/12/my-graduate-career-in-math/",
+    "abstract": "My Graduate Career in Math || Math \u2229 Programming My Graduate Career in Math#essays #mathematics #education\u00a02025-05-12Editor\u2019s note: This essay was originally published on Medium on 2016-03-05. I have made minor edits in this republishing and added a few small retrospective notes.2010\u20132011 (Year 0)I had just switched my major at Cal Poly State University from computer science to math. I wanted to double major but California was in a budget crisis and a few weeks before I tried submitting my doubl",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:52.551298"
+  },
+  {
+    "name": "Concrete Examples of Quantum Gates || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "pattern",
+      "adaptation"
+    ],
+    "paper_title": "Concrete Examples of Quantum Gates || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2016/01/11/concrete-examples-of-quantum-gates/",
+    "abstract": "Concrete Examples of Quantum Gates || Math \u2229 Programming Concrete Examples of Quantum Gates#linear maps #mathematics #matrices #python #quantum computing\u00a02016-01-11This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.So far in this series we\u2019ve seen a lot of motivation and defined basic ideas of what a quantum circuit is. But on rereading my posts, I think we would all benefit from some concreteness.\u201cLocal\u201d operation",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:54.197386"
+  },
+  {
+    "name": "About the Author || Math \u2229 Programming",
+    "domain": "biology",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "About the Author || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/about/",
+    "abstract": "About the Author || Math \u2229 Programming About the AuthorI\u2019m Jeremy Kun. I\u2019m currently a staff software engineer at Google and I live in Portland, Oregon.Elsewhere on the internetGithubNewsletterMathstodon (shorform posts syndicated)Bluesky (shortform posts syndicated)Twitter (shortform posts syndicated)Hacker NewsBooksIn 2018 I published\u00a0A Programmer\u2019s Introduction to Mathematics.Currently I\u2019m working on\u00a0Practical Math for Programmers: A Tour of Math in Production Software.EducationI earned a PhD",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:55.804369"
+  },
+  {
+    "name": "Socks, a matching game based on an additive combinatorics problem || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "field"
+    ],
+    "mechanisms": [
+      "optimization",
+      "symmetry",
+      "convergence",
+      "competition"
+    ],
+    "paper_title": "Socks, a matching game based on an additive combinatorics problem || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2023/10/14/socks-a-matching-game-based-on-an-additive-combinatorics-problem/",
+    "abstract": "Socks, a matching game based on an additive combinatorics problem || Math \u2229 Programming Socks, a matching game based on an additive combinatorics problem#additive combinatorics #board games #card game #games #Group Theory #mathematics\u00a02023-10-14This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Can you find a set of cards among these six, such that the socks on the chosen cards can be grouped into matching pairs? (",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:56.825268"
+  },
+  {
+    "name": "induction || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "recursion"
+    ],
+    "paper_title": "induction || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/tags/induction/",
+    "abstract": "induction || Math \u2229 Programming inductionSilent Duels\u2014Parsing the ConstructionJanuary 28, 2019Reservoir SamplingJuly 5, 2013Methods of Proof \u2014 InductionMarch 21, 2013False Proof\u2014All Horses are the Same ColorJuly 16, 2011",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:57.043779"
+  },
+  {
+    "name": "The Perceptron, and All the Things it Can't Perceive || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "adaptation"
+    ],
+    "paper_title": "The Perceptron, and All the Things it Can't Perceive || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2011/08/11/the-perceptron-and-all-the-things-it-cant-perceive",
+    "abstract": "The Perceptron, and All the Things it Can't Perceive || Math \u2229 Programming The Perceptron, and All the Things it Can't Perceive#machine learning #mathematics #neural networks #perceptron #programming #pseudocode\u00a02011-08-11This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.This post assumes some basic familiarity with Euclidean geometry and linear algebra. Though we do not assume so much knowledge as is contained in",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:57.310731"
+  },
+  {
+    "name": "Busy Beavers, and the Quest for Big Numbers || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "coordination"
+    ],
+    "paper_title": "Busy Beavers, and the Quest for Big Numbers || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2012/02/08/busy-beavers-and-the-quest-for-big-numbers/",
+    "abstract": "Busy Beavers, and the Quest for Big Numbers || Math \u2229 Programming Busy Beavers, and the Quest for Big Numbers#ackermann function #busy beaver #primer #turing machine\u00a02012-02-08This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Finding Bigger Numbers, a Measure of Human Intellectual ProgressBefore we get into the nitty gritty mathematics, I\u2019d like to mirror the philosophical and historical insights that one can draw",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:57.438715"
+  },
+  {
+    "name": "Well Orderings and Search || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "recursion"
+    ],
+    "paper_title": "Well Orderings and Search || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2011/06/14/well-orderings-and-search/",
+    "abstract": "Well Orderings and Search || Math \u2229 Programming Well Orderings and Search#axiom of choice #binary search #mathematica #mathematics #pseudocode #sorting #well-ordering\u00a02011-06-14This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Binary SearchBinary search is perhaps the first and most basic nontrivial algorithm a student learns. For the mathematicians out there, binary search is a fast procedure to determine whether",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:57.724541"
+  },
+  {
+    "name": "streaming algorithms || Math \u2229 Programming",
+    "domain": "computer science",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "streaming algorithms || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/tags/streaming-algorithms/",
+    "abstract": "streaming algorithms || Math \u2229 Programming streaming algorithmsFinding the majority element of a streamMarch 9, 2015Reservoir SamplingJuly 5, 2013",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:57.949083"
+  },
+  {
+    "name": "Complex Fourier Series",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "recursion",
+      "diffusion"
+    ],
+    "paper_title": "The Fast Fourier Transform || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2012/07/18/the-fast-fourier-transform/",
+    "abstract": "The Fast Fourier Transform || Math \u2229 Programming The Fast Fourier Transform#divide and conquer #fourier analysis #fourier transform #mathematics #programming #python #sound\u00a02012-07-18This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.It\u2019s often said that the Age of Information began on August 17, 1964 with the publication of Cooley and Tukey\u2019s paper, \u201cAn Algorithm for the Machine Calculation of Complex Fourier Seri",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:58.953954"
+  },
+  {
+    "name": "Modulus Switching in LWE || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "adaptation"
+    ],
+    "paper_title": "Modulus Switching in LWE || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2022/07/16/modulus-switching-in-lwe/",
+    "abstract": "Modulus Switching in LWE || Math \u2229 Programming Modulus Switching in LWE#cryptography #fhe #learning with errors #mathematics #modulus switching #programming\u00a02022-07-16This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.The Learning With Errors problem is the basis of a few cryptosystems, and a foundation for many fully homomorphic encryption (FHE) schemes. In this article I\u2019ll describe a technique used in some of th",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:59.158979"
+  },
+  {
+    "name": "A Quasipolynomial Time Algorithm for Graph Isomorphism: The Details || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "field"
+    ],
+    "mechanisms": [
+      "optimization",
+      "oscillation",
+      "symmetry"
+    ],
+    "paper_title": "A Quasipolynomial Time Algorithm for Graph Isomorphism: The Details || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2015/11/12/a-quasipolynomial-time-algorithm-for-graph-isomorphism-the-details/",
+    "abstract": "A Quasipolynomial Time Algorithm for Graph Isomorphism: The Details || Math \u2229 Programming A Quasipolynomial Time Algorithm for Graph Isomorphism: The Details#automorphism groups #babai #breakthrough #divide and conquer #graph isomorphism #johnson graph #mathematics #permutation groups #quasipolynomial\u00a02015-11-12This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Update 2017-01-09: Laci claims to have found a workaro",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:58:59.999691"
+  },
+  {
+    "name": "Encoding Schemes in FHE || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "field",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "adaptation"
+    ],
+    "paper_title": "Encoding Schemes in FHE || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2023/09/18/encoding-schemes-in-fhe/",
+    "abstract": "Encoding Schemes in FHE || Math \u2229 Programming Encoding Schemes in FHE#complex numbers #cryptography #encoding #fhe #homomorphic encryption #learning with errors #lwe #mathematics #Number Theory #programming #residue number system #rlwe\u00a02023-09-18This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.In cryptography, we need a distinction between a cleartext and a plaintext. A cleartext is a message in its natural form.",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:00.219007"
+  },
+  {
+    "name": "Simulating a Fair Coin with a Biased Coin || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "Simulating a Fair Coin with a Biased Coin || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/02/08/simulating-a-fair-coin-with-a-biased-coin/",
+    "abstract": "Simulating a Fair Coin with a Biased Coin || Math \u2229 Programming Simulating a Fair Coin with a Biased Coin#coins #mathematics #python #random number generators\u00a02014-02-08This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.This is a guest post by my friend and colleague Adam Lelkes. Adam\u2019s interests are in algebra and theoretical computer science. This gem came up because Adam gave a talk on probabilistic computation ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:00.479407"
+  },
+  {
+    "name": "Zero Knowledge Proofs \u2014 A Primer || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "Zero Knowledge Proofs \u2014 A Primer || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2016/07/05/zero-knowledge-proofs-a-primer/",
+    "abstract": "Zero Knowledge Proofs \u2014 A Primer || Math \u2229 Programming Zero Knowledge Proofs \u2014 A Primer#complexity theory #cryptography #graph isomorphism #mathematics #programming #python #zero knowledge\u00a02016-07-05This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.In this post we\u2019ll get a strong taste for zero knowledge proofs by exploring the graph isomorphism problem in detail. In the next post, we\u2019ll see how this relates to cr",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:01.460224"
+  },
+  {
+    "name": "Attention spans for math and stories || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "field",
+      "population"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "competition",
+      "adaptation",
+      "coordination"
+    ],
+    "paper_title": "Attention spans for math and stories || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2019/03/26/attention-spans-for-math-and-stories/",
+    "abstract": "Attention spans for math and stories || Math \u2229 Programming Attention spans for math and stories#essays\u00a02024-11-15Editor\u2019s note: This essay was originally published in 2019. I have made minor edits in this republishing.There was a MathOverflow thread about mathematically interesting games for 5\u20136 year olds. A lot of the discussion revolved around how young age 5 really is, and how we should temper expectations because we don\u2019t really remember what it\u2019s like to be 5. In response to an enormous ans",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:02.458669"
+  },
+  {
+    "name": "Topological Spaces \u2014 A Primer || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "pattern"
+    ],
+    "paper_title": "Topological Spaces \u2014 A Primer || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2012/11/04/topological-spaces-a-primer/",
+    "abstract": "Topological Spaces \u2014 A Primer || Math \u2229 Programming Topological Spaces \u2014 A Primer#functions #klein bottle #metric #projective plane #torus #zariski topology\u00a02012-11-04This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.In our last primer we looked at a number of interesting examples of metric spaces, that is, spaces in which we can compute distance in a reasonable way. Our goal for this post is to relax this assumpt",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:03.372426"
+  },
+  {
+    "name": "Serial Dictatorships and House Allocation || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "field",
+      "population",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern"
+    ],
+    "paper_title": "Serial Dictatorships and House Allocation || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2015/10/26/serial-dictatorships-and-house-allocation/",
+    "abstract": "Serial Dictatorships and House Allocation || Math \u2229 Programming Serial Dictatorships and House Allocation#economics #mathematics #mechanism design #pareto-optimality #programming #python #stable marriages\u00a02015-10-26This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.I was recently an invited speaker in a series of STEM talks at Moraine Valley Community College. My talk was called \u201cWhat can algorithms tell us about l",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:04.403754"
+  },
+  {
+    "name": "Silent Duels\u2014Constructing the Solution part 2 || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "field",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "symmetry"
+    ],
+    "paper_title": "Silent Duels\u2014Constructing the Solution part 2 || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2022/03/24/silent-duels-constructing-the-solution-part-2/",
+    "abstract": "Silent Duels\u2014Constructing the Solution part 2 || Math \u2229 Programming Silent Duels\u2014Constructing the Solution part 22022-03-24This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Previous posts in this series:Silent Duels and an Old Paper of Restrepo Silent Duels\u2014Parsing the Construction Silent Duels\u2014Constructing the Solution part 1Since it\u2019s been three years since the last post in this series, and the reason for the de",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:04.753760"
+  },
+  {
+    "name": "Searching for RH Counterexamples \u2014 Setting up Pytest || Math \u2229 Programming",
+    "domain": "biology",
+    "type": [
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "convergence"
+    ],
+    "paper_title": "Searching for RH Counterexamples \u2014 Setting up Pytest || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2020/09/11/searching-for-rh-counterexamples-setting-up-pytest/",
+    "abstract": "Searching for RH Counterexamples \u2014 Setting up Pytest || Math \u2229 Programming Searching for RH Counterexamples \u2014 Setting up Pytest#mathematics #Number Theory #programming #pytest #riemann hypothesis #software #testing\u00a02020-09-11This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Some mathy-programmy people tell me they want to test their code, but struggle to get set up with a testing framework. I suspect it\u2019s due to a",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:04.984733"
+  },
+  {
+    "name": "Categories, What's the Point? || Math \u2229 Programming",
+    "domain": "biology",
+    "type": [
+      "field",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern"
+    ],
+    "paper_title": "Categories, What's the Point? || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2013/04/16/categories-whats-the-point/",
+    "abstract": "Categories, What's the Point? || Math \u2229 Programming Categories, What's the Point?#categories #mathematics\u00a02013-04-16This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Perhaps primarily due to the prominence of monads in the Haskell programming language, programmers are often curious about category theory. Proponents of Haskell and other functional languages can put category-theoretic concepts on a pedestal or in a ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:05.209279"
+  },
+  {
+    "name": "My next book will be \"Practical Math for Programmers\" || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "adaptation",
+      "convergence"
+    ],
+    "paper_title": "My next book will be \"Practical Math for Programmers\" || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2022/03/16/my-next-book-will-be-practical-math-for-programmers/",
+    "abstract": "My next book will be \"Practical Math for Programmers\" || Math \u2229 Programming My next book will be \"Practical Math for Programmers\"2022-03-16This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.tl;dr: I\u2019m writing a new book, sign up for the announcements mailing list.I\u2019ve written exactly zero new technical blog posts this year because I\u2019ve been spending all my writing efforts on my next book, Practical Math for Program",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:06.784007"
+  },
+  {
+    "name": "Searching for RH Counterexamples \u2014 Performance Profiling || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "convergence"
+    ],
+    "paper_title": "Searching for RH Counterexamples \u2014 Performance Profiling || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2021/02/02/searching-for-rh-counterexamples-performance-profiling/",
+    "abstract": "Searching for RH Counterexamples \u2014 Performance Profiling || Math \u2229 Programming Searching for RH Counterexamples \u2014 Performance Profiling#databases #debugging #docker #mathematics #postgres #profiling #programming #riemann hypothesis #software\u00a02021-02-02This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.We\u2019re ironically searching for counterexamples to the Riemann Hypothesis.Setting up PytestAdding a DatabaseSearch S",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:08.392365"
+  },
+  {
+    "name": "MLIR \u2014 Using Traits || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "convergence",
+      "symmetry"
+    ],
+    "paper_title": "MLIR \u2014 Using Traits || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2023/09/07/mlir-using-traits/",
+    "abstract": "MLIR \u2014 Using Traits || Math \u2229 Programming MLIR \u2014 Using Traits#c++ #heir #mathematics #mlir #programming\u00a02023-09-07This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Table of ContentsLast time we defined a new dialect poly for polynomial arithmetic. This time we\u2019ll spruce up the dialect by adding some pre-defined MLIR traits, and see how the application of traits enables some general purpose passes to optimize poly ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:09.980934"
+  },
+  {
+    "name": "Occam's Razor and PAC-learning || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "population"
+    ],
+    "mechanisms": [
+      "optimization",
+      "adaptation"
+    ],
+    "paper_title": "Occam's Razor and PAC-learning || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/09/19/occams-razor-and-pac-learning",
+    "abstract": "Occam's Razor and PAC-learning || Math \u2229 Programming Occam's Razor and PAC-learning#chernoff #computational learning theory #occam's razor #pac-learning #vc-dimension\u00a02014-09-19This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.So far our discussion of learning theory has been seeing the definition of PAC-learning, tinkering with it, and seeing simple examples of learnable concept classes. We\u2019ve said that our real ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:10.229936"
+  },
+  {
+    "name": "A Sample of Standard ML, the TreeSort Algorithm, and Monoids || Math \u2229 Programming",
+    "domain": "computer science",
+    "type": [
+      "particles"
+    ],
+    "mechanisms": [
+      "recursion",
+      "feedback"
+    ],
+    "paper_title": "A Sample of Standard ML, the TreeSort Algorithm, and Monoids || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2013/04/07/a-sample-of-standard-ml-and-the-treesort-algorithm",
+    "abstract": "A Sample of Standard ML, the TreeSort Algorithm, and Monoids || Math \u2229 Programming A Sample of Standard ML, the TreeSort Algorithm, and Monoids#functional programming #mathematics #ML #programming #sorting #trees #universal properties\u00a02013-04-07This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.In this post we will assume the reader has a passing familiarity with some of the basic concepts of functional programming",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:11.541266"
+  },
+  {
+    "name": "Page 54",
+    "domain": "unknown",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "feedback"
+    ],
+    "paper_title": "Page 54",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/img/2014/monalisa.png",
+    "abstract": "\ufffdPNG \u001a \u0000\u0000\u0000 IHDR\u0000\u0000\u0002\ufffd\u0000\u0000\u0004 \b\u0003\u0000\u0000\u0000\ufffd\ufffds\ufffd\u0000\u0000\u0000NPLTE\u0013\b\t\ufffd\ufffdB\u04f3R\ufffd-\u01a5A\ufffd\ufffd=\u0440\u001f\ufffd\ufffd>\ufffd\ufffd+\ufffd\u007f0\ufffdg\u0019\ufffdt+ol5~d\u001f\ufffdR\u0015eR \u007f@\u0013NB e1\u0012=3\u0018M$\u00111$\u00137\u0017\u000e%\u0014\u000e\u001b \u000e\u0004\u0005\ufffd?]\ufffd\u0000\u0003 CIDATx\u06ac]\ufffd\ufffd\u4a0e\ufffd\ufffd0!4BEU\ufffd\ufffdv\ufffd\ufffd\ufffd\ufffdt\ufffd\ufffd\u024e\ufffd\ufffd\ufffd7\ufffd3\u0013c\ufffd\u0001\ufffdA\ufffde\ufffd\u06fd\ufffd\ufffdn\u0007\ufffdf\u001a\ufffdcW%\ufffd\u00115\ufffd&y&\ufffd*jG\ufffd =\ufffd+=i\ufffd\ufffd\ufffd\u0002\ufffdG\ufffdt\ufffd\ufffd\ufffd\u0006\ufffd\u00034\u001a\ufffd\t\ufffd \ufffd\u0003\u001ak\ufffd\\\ufffd\ufffds\ufffd\ufffd\ufffdT\ufffd\u0000\u001f;\ufffd\ufffdn:<\ufffd{\ufffd\u000fn\ufffdqF\ufffd\u0014 \ufffd\ufffd\ufffd\ufffd%\ufffdy\ufffd\u0012\ufffd9\ufffd7\ufffd\ufffd\ufffd\u0019\ufffdq\ufffd\ufffd\ufffd\ufffd\u0014\ufffd/\ufffdG\ufffd\u001b\u000e\ufffd\ufffd=\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdX:\ufffd\u8ffa\u52a3\ufffd\ufffd\ufffd \ufffd\u07d3#4\ufffd4b\ufffd\ufffd\ufffdvp\ufffdF\ufffd|\u0002\ufffd\u0015\ufffdE\ufffd^u\ufffdE\u0007\ufffd[\ufffd\ufffd~\u0010kq\"\ufffdG\ufffd\ufffd\ufffd\ufffd\ufffd\u000f\ufffd\ufffd J\ufffd\b\ufffdZ\u07ca\ufffd9\ufffd\ufffd-#o\ufffdG\ufffd\ufffd+r?{\ufffd\ufffdy<\ufffdU#\ufffd\tB\ufffd\ufffdL\u0011KZ\u001b\u0019\ufffd\ufffd\ufffd\ufffdfz\ufffd\ufffd\ufffd\ufffdv\ufffd\u0015SK\ufffd \u0002?\ufffd\ufffd/\ufffd\ufffd'L\ufffd\ufffd\ufffd\ufffdYA\ufffd\ufffd\ufffd\u0011\ufffd\ufffd>\u0015\ufffd\ufffd~ C\u001b\ufffdQ9f\ufffd\ufffd\ufffd\ufffd\ufffd8>\u0006\ufffd\ufffdj\ufffd\u0014\ufffd\ufffd \ufffd\ufffdY\u0004\ufffd\ufffd@\ufffdq\u0007\ufffd\ufffd!\ufffd\ufffd\ufffdM\ufffd\u0017\ufffdk}\u0005\ufffd\ufffd6rP\ufffd&y\"\u000e^\ufffd\\\ufffds; \u0007\ufffd\"\ufffd\ufffd0\ufffd\b\u0014\u0003\ufffd",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:11.925913"
+  },
+  {
+    "name": "Rings \u2014 A Primer || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "field",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "Rings \u2014 A Primer || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2013/04/30/rings-a-primer/",
+    "abstract": "Rings \u2014 A Primer || Math \u2229 Programming Rings \u2014 A Primer#abelian groups #algebraic geometry #division algorithm #euclidean domain #mathematics #polynomial ring #UFD\u00a02013-04-30This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Previously on this blog, we\u2019ve covered two major kinds of algebraic objects: the vector space and the group. There are at least two more fundamental algebraic objects every mathematician should",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:12.144495"
+  },
+  {
+    "name": "MLIR \u2014 Canonicalizers and Declarative Rewrite Patterns || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "oscillation",
+      "convergence",
+      "diffusion"
+    ],
+    "paper_title": "MLIR \u2014 Canonicalizers and Declarative Rewrite Patterns || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2023/09/20/mlir-canonicalizers-and-declarative-rewrite-patterns/",
+    "abstract": "MLIR \u2014 Canonicalizers and Declarative Rewrite Patterns || Math \u2229 Programming MLIR \u2014 Canonicalizers and Declarative Rewrite Patterns#c++ #canonicalization #compilers #complex numbers #mathematics #mlir #polynomials #primer #programming\u00a02023-09-20This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Table of ContentsIn a previous article we defined folding functions, and used them to enable some canonicalization and the",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:12.389259"
+  },
+  {
+    "name": "Parameterizing the Vertex Cover Problem || Math \u2229 Programming",
+    "domain": "computer science",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "recursion",
+      "convergence"
+    ],
+    "paper_title": "Parameterizing the Vertex Cover Problem || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/08/25/parameterizing-the-vertex-cover-problem",
+    "abstract": "Parameterizing the Vertex Cover Problem || Math \u2229 Programming Parameterizing the Vertex Cover Problem#complexity theory #computational complexity #conferences #fixed parameter tractability #kernelization #vertex cover\u00a02014-08-25This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.I\u2019m presenting a paper later this week at the Matheamtical Foundations of Computer Science 2014 in Budapest, Hungary. This conference is an",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:12.643422"
+  },
+  {
+    "name": "The Fundamental Group \u2014 A Primer || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "field",
+      "particles"
+    ],
+    "mechanisms": [
+      "symmetry",
+      "coordination",
+      "convergence",
+      "chaos"
+    ],
+    "paper_title": "The Fundamental Group \u2014 A Primer || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2013/01/12/the-fundamental-group-a-primer",
+    "abstract": "The Fundamental Group \u2014 A Primer || Math \u2229 Programming The Fundamental Group \u2014 A Primer#algebraic topology #fundamental group #homotopy #mathematics\u00a02013-01-12This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Being part of the subject of algebraic topology, this post assumes the reader has read our previous primers on both topology and group theory. As a warning to the reader, it is more advanced than most of the ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:13.686431"
+  },
+  {
+    "name": "Simulating a Biased Coin with a Fair Coin || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "convergence"
+    ],
+    "paper_title": "Simulating a Biased Coin with a Fair Coin || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/02/12/simulating-a-biased-coin-with-a-fair-coin/",
+    "abstract": "Simulating a Biased Coin with a Fair Coin || Math \u2229 Programming Simulating a Biased Coin with a Fair Coin#calculus #coins #convergent series #mathematics #programming #python\u00a02014-02-12This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.This is a guest post by my friend and colleague Adam Lelkes. Adam\u2019s interests are in algebra and theoretical computer science. This gem came up because Adam gave a talk on probabilis",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:15.491864"
+  },
+  {
+    "name": "Streaming Median || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "pattern"
+    ],
+    "paper_title": "Streaming Median || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2012/06/14/streaming-median/",
+    "abstract": "Streaming Median || Math \u2229 Programming Streaming Median#big data #data analysis #mathematics #median #programming #python #streaming data\u00a02012-06-14This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Problem: Compute a reasonable approximation to a \u201cstreaming median\u201d of a potentially infinite sequence of integers.Solution: (in Python)def streamingMedian(seq): seq = iter(seq) m = 0 for nextElt in seq: if m > nextElt:",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:15.596888"
+  },
+  {
+    "name": "Sending and Authenticating Messages with Elliptic Curves || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "field",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "adaptation"
+    ],
+    "paper_title": "Sending and Authenticating Messages with Elliptic Curves || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/04/14/sending-and-authenticating-messages-with-elliptic-curves",
+    "abstract": "Sending and Authenticating Messages with Elliptic Curves || Math \u2229 Programming Sending and Authenticating Messages with Elliptic Curves#diffie-hellman #digital signature #discrete logarithm #elliptic curves #encryption #public-key #python #shamir-massey-omura\u00a02014-04-14This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Last time we saw the Diffie-Hellman key exchange protocol, and discussed the discrete logarithm p",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:15.893391"
+  },
+  {
+    "name": "A problem that is not (properly) PAC-learnable || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "adaptation"
+    ],
+    "paper_title": "A problem that is not (properly) PAC-learnable || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/04/21/an-un-pac-learnable-problem",
+    "abstract": "A problem that is not (properly) PAC-learnable || Math \u2229 Programming A problem that is not (properly) PAC-learnable#boolean satisfiability #computational complexity #computational learning theory #mathematics #NP #np-completeness #pac-learning #reduction #rp\u00a02014-04-21This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.In a previous post we introduced a learning model called Probably Approximately Correct (PAC). We ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:17.746744"
+  },
+  {
+    "name": "The Codes of Solomon, Reed, and Muller || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "field",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "convergence"
+    ],
+    "paper_title": "The Codes of Solomon, Reed, and Muller || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2015/03/23/the-codes-of-solomon-reed-and-muller",
+    "abstract": "The Codes of Solomon, Reed, and Muller || Math \u2229 Programming The Codes of Solomon, Reed, and Muller#coding theory #information theory #reed-muller code #reed-solomon code\u00a02015-03-23This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Last time we defined the Hamming code. We also saw that it meets the Hamming bound, which is a measure of how densely a code can be packed inside an ambient space and still maintain a gi",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:18.039354"
+  },
+  {
+    "name": "Two's Complement and Group Theory || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "particles"
+    ],
+    "mechanisms": [
+      "oscillation",
+      "symmetry"
+    ],
+    "paper_title": "Two's Complement and Group Theory || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2023/07/10/twos-complement-and-group-theory/",
+    "abstract": "Two's Complement and Group Theory || Math \u2229 Programming Two's Complement and Group Theory#abelian groups #circuits #groups #mathematics #programming #quotients #symmetry #twos complement\u00a02023-07-10This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Before I discovered math, I was a first year undergrad computer science student taking Electrical Engineering 101. The first topic I learned was what bits and boolean gat",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:19.000829"
+  },
+  {
+    "name": "Page 72",
+    "domain": "unknown",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "feedback"
+    ],
+    "paper_title": "Page 72",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/img/2014/monalisas1.png",
+    "abstract": "\ufffdPNG \u001a \u0000\u0000\u0000 IHDR\u0000\u0000\u0003A\u0000\u0000\u00010\b\u0003\u0000\u0000\u0000F\u008a\ufffd\u0000\u0000\u0000TPLTE \u0536\ufffd\u01ea\ufffdJ4&\ufffd\u057c\ufffd\u03b5+ \u0015\ufffd\ufffd\ufffd\ufffd\u0230 \u0016\u00107) \ufffdP6\ufffdX>\ufffdu[_;(\ufffd\ufffd\ufffd\ufffdlR\ufffdcI\u0180fwF/\u6804A\u0018\u0013\u04c9o\u0716z\ufffd\ufffdliR?\ufffdkS\ufa8d\ufffdO\u0018\ufffd\u0000\u0000\ufffd\ufffdIDATx\ufffd\u0518\ufffdv\ufffd \u0010\u0005-E}\ufffd\u0570U\ufffd\ufffd?t\ufffd]q\u0005Y\ufffdc\ufffd\ufffd\ufffd54M\ufffd\ufffd\tT0\ufffd,U\ufffd\ufffdt\ufffd\ufffd\ufffd:\ufffdf\u0003\ufffd\ufffdN$\u0003\ufffd\ufffd\ufffdt ~\u0013\ufffdq\ufffd\ufffdlH\u0019e\u0015 \ufffd\ufffd\ufffdMd\ufffd\ufffd\ufffd(:_\ufffde\ufffd\ufffd>\ufffd}l\ufffd\ufffd\ufffdk\ufffd\ufffd\ufffd\ufffdtg\ufffd;\u001a\ufffda\ufffd\ufffdi \ufffdj\ufffd2\ufffd\\F4\ufffdYm\ufffd\ufffde\ufffd\ufffd\ufffd\ufffdR\ufffd\u0426S\ufffd\ufffd\u07fa,)\u0000!-T\ufffdt\ufffd \ufffd<\ufffdtH\ufffdv\ufffd\ufffd\ufffd5\t`\u0019'\ufffd\u0019\ufffdX*\u000e3l\ufffd\ufffd=\ufffd\u0014\ufffd\ufffdf(\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u02e6\ufffd 6\ufffd#\ufffd\t:\u042c\ufffd\ufffd\ufffdi\ufffd\ufffd\u000e \ufffd\u0001\ufffd\u00020U%\ufffd\ufffd\ufffd\ufffdl\ufffd\u01b4tJ\ufffdH\u0018\ufffd\ufffd\u0007\ufffd}\ufffd\ufffd.`s#%@H\u0012\ufffd\ufffd$G\b\ufffdq#\ufffd\ufffd\ufffdH\ufffd^o}\ufffd+\ufffdi0z?\ufffd\u0016\ufffd\ufffd\ufffd\ufffd\u0504y @\ufffd0\ufffd\ufffd$\ufffd\ufffd\u01e9E\ufffd\ufffd\u000f\ufffd\ufffd\ufffdm\u0002Yp0\ufffd\ufffdV\ufffd\ufffd\ufffd\u001f\u000eo\ufffd\ufffdv\ufffd \u0010\ufffd\u001bG~\u001a8\u007f\ufffdZU T\u0001\u0455\u001f\t\ufffd\u0012\u001a\u000e1\ufffdU\u01dd\ufffd\ufffd 8\ufffd(\ufffd\u0003l\ufffdl'\b*\ufffd\ufffd\u000f\u0332\ufffd\ufffd\bA\ufffdpF{\ufffd\u0003\ufffd;\ufffdR-\u01cdy ~\ufffd%tt\ufffd\ufffd\ufffd%\ufffd_,\ufffd",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:19.894643"
+  },
+  {
+    "name": "The Gadget Decomposition in FHE || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "adaptation",
+      "convergence",
+      "symmetry"
+    ],
+    "paper_title": "The Gadget Decomposition in FHE || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2021/12/11/the-gadget-decomposition-in-fhe/",
+    "abstract": "The Gadget Decomposition in FHE || Math \u2229 Programming The Gadget Decomposition in FHE#fhe #homomorphic encryption #gadget decomposition #Group Theory #linear algebra #mathematics #Number Theory #programming #python\u00a02021-12-11This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Lately I\u2019ve been studying Fully Homomorphic Encryption, which is the miraculous ability to perform arbitrary computations on encrypted data wi",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:21.565259"
+  },
+  {
+    "name": "Big-O Notation\u2014A Primer || Math \u2229 Programming",
+    "domain": "biology",
+    "type": [
+      "network",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "convergence"
+    ],
+    "paper_title": "Big-O Notation\u2014A Primer || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2011/06/14/big-o-notation-a-primer/",
+    "abstract": "Big-O Notation\u2014A Primer || Math \u2229 Programming Big-O Notation\u2014A Primer#big-o notation #big-theta notation #computational complexity #limits #mathematics #primer #real analysis\u00a02011-06-14This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.The Quest to Capture SpeedCompanies and researchers spend hundreds of millions of dollars for the fruits of their algorithms. Whether one is indexing websites on the internet for sea",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:21.788202"
+  },
+  {
+    "name": "MLIR \u2014 Verifiers || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network",
+      "population",
+      "particles"
+    ],
+    "mechanisms": [
+      "pattern",
+      "symmetry",
+      "diffusion"
+    ],
+    "paper_title": "MLIR \u2014 Verifiers || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2023/09/13/mlir-verifiers/",
+    "abstract": "MLIR \u2014 Verifiers || Math \u2229 Programming MLIR \u2014 Verifiers#c++ #compilers #mathematics #mlir #primer #programming\u00a02023-09-13This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Table of ContentsLast time we defined folders and used them to enable some canonicalization and the sccp constant propagation pass for the poly dialect. This time we\u2019ll add some additional safety checks to the dialect in the form of verifiers.The",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:23.442383"
+  },
+  {
+    "name": "Page 80",
+    "domain": "unknown",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "feedback"
+    ],
+    "paper_title": "Page 80",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/img/2013/first-diagram.png",
+    "abstract": "\ufffdPNG \u001a \u0000\u0000\u0000 IHDR\u0000\u0000\u0001T\u0000\u0000\u0000\ufffd\b\u0003\u0000\u0000\u00004\ufffd\ufffd\ufffd\u0000\u0000\u0000TPLTE\ufffd\ufffd\ufffd4*(\ufffd\ufffd\ufffdDCB\u0005\u0004 \ufffd\ufffd\ufffd\u0018\u0015\u0019\ufffd\ufffd\ufffd___\ufffd\ufffd\ufffd\ufffd\ufffd\u6ebb\ufffdvut\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u007f/ \ufffdl-\u0017\"Z\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\u050et\ufffd\ufffd\ufffd[3\ufffd\ufffd[\ufffd\ufffd\u0019M\ufffdKj\ufffdm\ufffd\ufffd\ufffd\u0000\u0000\u0005/IDATx\ufffd\ufffd\ufffd\ufffdz\ufffd:\u0010\u0005\ufffd\ufffddi\ufffd`\u001bCp(\ufffd\ufffd\ufffds\u0007\ufffd4 \ufffde\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd~\ufffd \ufffd\u014c$\ufffd \b\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011\u0011-\tN\ufffd\ufffd\ufffd\ufffd\u001b\ufffd\b\ufffdo \ufffdrm95\ufffd\ufffdX9\ufffd\ufffdF\ufffd\u02b5\ufffd\ufffd\ufffd#\ufffd\ufffd\u0005\ufffd\ufffd\ufffd\ufffds\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd'T\u001fo\ufffd\ufffdrj\ufffdI\ufffd\u0005\ufffd\ufffdrj\ufffdU\ufffd\ufffd\ufffdc\ufffd\ufffdA MP\ufffd6\ufffd\ufffdrj\u856d\ufffd\ufffd\ufffdC\u02e9\ufffdW\ufffd\ufffd \ufffdrj\u85ed\ufffd\u001b\ufffd#\u02e9\ufffd\u0006\ufffd\u0003\ufffds\ufffd\u0014\u0452\u07dbz W\ufffd\ufffdH\u0007(r\ufffd\ufffd~5\ufffd\ufffd\ufffd\ufffd\u001aZ(BH[\ufffdb \ufffdv\ufffd\u0016z@\ufffdC,\ufffdr\ufffd\ufffd's\u063e\ufffd\ufffd\ufffd\ufffd\ufffd\ufffdko\ufffd\ufffd\ufffd{\ufffd\ufffd\ufffdV:@\ufffd;\ufffd\ufffd \"\ufffdV\ufffd /\ufffdA\ufffd*k\ufffd,*\ufffd\ufffd\ufffd\ufffd5e\ufffd\ufffdU\ufffdP!\ufffd\u000e\ufffd\u06fd\ufffd}\u001b\ufffd\ufffd\ufffd\b\ufffd>\ufffd\ufffd\u001f3 \ufffd U\ufffd\u0018\ufffd\u0010\ufffd\u0019\ucc8f\ufffd\ufffdj\ufffdC\u0011\ufffd~\ufffd\ufffd\ufffdp\ufffd\ufffd\ufffdC \ufffd=6j\ufffd\ufffd\u0012\ufffd\ufffd\u0014j\ufffd\ufffd/]y7\ufffd\u06b9\ufffd\ufffd.A\ufffd\\,<\ufffdu\u000e\u0015\ufffd\u01db\ufffd\ufffda\ufffdH\u0006W\ufffd*T@\ufffd\ufffd\u000fWF:",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:23.649067"
+  },
+  {
+    "name": "compilers || Math \u2229 Programming",
+    "domain": "computer science",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern",
+      "diffusion"
+    ],
+    "paper_title": "compilers || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/tags/compilers/",
+    "abstract": "compilers || Math \u2229 Programming compilersInteger Set Library (ISL) - A PrimerOctober 19, 2025Shift NetworksSeptember 2, 2024MLIR \u2014 Defining Patterns with PDLLAugust 4, 2024MLIR \u2014 A Global Optimization and Dataflow AnalysisNovember 15, 2023MLIR \u2014 Lowering through LLVMNovember 1, 2023MLIR \u2014 Canonicalizers and Declarative Rewrite PatternsSeptember 20, 2023MLIR \u2014 VerifiersSeptember 13, 2023MLIR \u2014 Folders and Constant PropagationSeptember 11, 2023MLIR \u2014 Defining a New DialectAugust 21, 2023MLIR \u2014 Usi",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:25.259750"
+  },
+  {
+    "name": "How to Conquer Tensorphobia || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "convergence"
+    ],
+    "paper_title": "How to Conquer Tensorphobia || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/01/17/how-to-conquer-tensorphobia",
+    "abstract": "How to Conquer Tensorphobia || Math \u2229 Programming How to Conquer Tensorphobia#np-completeness #primer #tensor product #tensors #universal properties\u00a02014-01-17This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.A professor at Stanford once said,If you really want to impress your friends and confound your enemies, you can invoke tensor products\u2026 People run in terror from the $ \\otimes$ symbol.He was explaining some a",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:26.180310"
+  },
+  {
+    "name": "MLIR \u2014 Dialect Conversion || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "pattern"
+    ],
+    "paper_title": "MLIR \u2014 Dialect Conversion || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2023/10/23/mlir-dialect-conversion/",
+    "abstract": "MLIR \u2014 Dialect Conversion || Math \u2229 Programming MLIR \u2014 Dialect Conversion#heir #mathematics #mlir #polynomial ring #polynomials #primer #programming\u00a02023-10-23This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Table of ContentsIn previous articles we defined a dialect, and wrote various passes to optimize and canonicalize a program using that dialect. However, one of the main tenets of MLIR is \u201cincremental lowering",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:26.451642"
+  },
+  {
+    "name": "The Complexity of Communication || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "field",
+      "population"
+    ],
+    "mechanisms": [
+      "optimization",
+      "convergence"
+    ],
+    "paper_title": "The Complexity of Communication || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/11/10/the-complexity-of-communication",
+    "abstract": "The Complexity of Communication || Math \u2229 Programming The Complexity of Communication#communication complexity #computational complexity #information theory #log-rank conjecture #lower bounds #matrices\u00a02014-11-10This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.satelliteOne of the most interesting questions posed in the last thirty years of computer science is to ask how much \u201cinformation\u201d must be communicated bet",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:28.154901"
+  },
+  {
+    "name": "Page 90",
+    "domain": "unknown",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "adaptation"
+    ],
+    "paper_title": "Page 90",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/img/2013/s-pablo-picasso-large640.jpg",
+    "abstract": "\ufffd\ufffd\ufffd\ufffd\u0000\u0010JFIF\u0000\u0001\u0001\u0001\u0001,\u0001,\u0000\u0000\ufffd\ufffdF\ufffdPhotoshop 3.0\u00008BIM\u0004\u0004\u0000\u0000\u0000\u0000\u0003\ufffd \u0002\u0000\u0000\u0002\u0000\u0002 \u0002\u0019\u0000\u0012Artist's studio \u0002\u0019\u0000 Face \u0002\u0019\u0000\u0014Interior \u0002\u0019\u0000 Paris ( all) \u0002\u0019\u0000 Paris (75006) \u0002\u0019\u0000\u0017PICASSO Pablo \u0002\u0019\u0000 PICASSO Pablo-Works \u0002\u0019\u0000%Picture (painting) \u0002\u0019\u0000 Portrait \u0002\u0019\u0000\u0015Reflection (thought) \u0002\u0019\u0000 White people \u00027\u0000\b19480615 \u0002P\u0000 Herbert List \u0002g\u0000\u0010LIH1948003W00019 \u0002n\u0000 \ufffdHerbert List / Magnum Photos \u0002s\u0000\u0016\ufffdHerbert List / Magnum \u0002t\u0000 \ufffdHerbert List / Magnum Photos \u0002x\u0002\u0004FRANCE. Paris. Rue des Grands Augustins. Pablo PICASSO at his studio in front of \"La Cuisine\". ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:28.427859"
+  },
+  {
+    "name": "Load Balancing and the Power of Hashing || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "optimization"
+    ],
+    "paper_title": "Load Balancing and the Power of Hashing || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2015/12/28/load-balancing-and-the-power-of-hashing/",
+    "abstract": "Load Balancing and the Power of Hashing || Math \u2229 Programming Load Balancing and the Power of Hashing#chebyshev #hashing #load balancing #mathematics #programming #python\u00a02015-12-28This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Here\u2019s a bit of folklore I often hear (and retell) that\u2019s somewhere between a joke and deep wisdom: if you\u2019re doing a software interview that involves some algorithms problem that seems ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:28.697776"
+  },
+  {
+    "name": "Conditional (Partitioned) Probability \u2014 A Primer || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "adaptation",
+      "convergence"
+    ],
+    "paper_title": "Conditional (Partitioned) Probability \u2014 A Primer || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2013/03/28/conditional-partitioned-probability-a-primer",
+    "abstract": "Conditional (Partitioned) Probability \u2014 A Primer || Math \u2229 Programming Conditional (Partitioned) Probability \u2014 A Primer#bayes theorem #conditional probability #mathematics #primer\u00a02013-03-28This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.One of the main areas of difficulty in elementary probability, and one that requires the highest levels of scrutiny and rigor, is conditional probability. The ideas are simple e",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:29.734344"
+  },
+  {
+    "name": "Page 95",
+    "domain": "unknown",
+    "type": [
+      "system"
+    ],
+    "mechanisms": [
+      "feedback"
+    ],
+    "paper_title": "Page 95",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/img/2012/tumblr_lwn6qu5g4n1qgutswo1_400.jpg",
+    "abstract": "\ufffd\ufffd\ufffd\ufffd\u0000\u0010JFIF\u0000\u0001\u0001\u0000\u0000d\u0000d\u0000\u0000\ufffd\ufffd\u0000kDucky\u0000\u0001\u0000\u0004\u0000\u0000\u0000>\u0000\u0002\u0000V\u0000\u0000\u0000)\u0000L\u0000o\u0000r\u0000d\u0000 \u0000o\u0000f\u0000 \u0000t\u0000h\u0000e\u0000 \u0000R\u0000i\u0000n\u0000g\u0000s\u0000:\u0000 \u0000T\u0000h\u0000e\u0000 \u0000T\u0000w\u0000o\u0000 \u0000T\u0000o\u0000w\u0000e\u0000r\u0000s\u0000 \u0000(\u00002\u00000\u00000\u00002\u0000)\u0000 \u0000\u0000\ufffd\ufffd\u0000C\u0000 \b \u000e\u000e \u000f\u0013 \u0015\u0013\u0012\u0012\u0013' \u0017 .)10.)-,3:J>36F7,-@WAFLNRSR2>ZaZP`JQRO\ufffd\ufffd\u0000C\u0001\u000e\u000e\u000e\u0013\u0011\u0013&\u0015\u0015&O5-5OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\ufffd\ufffd\u0000\u0011\b\u0001,\u0001\ufffd\u0003\u0001\u0011\u0000\u0002\u0011\u0001\u0003\u0011\u0001\ufffd\ufffd\u0000\u001b\u0000\u0000\u0002\u0003\u0001\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0004\u0001\u0002\u0005\u0006\u0000\u0007\ufffd\ufffd\u00008\u0010\u0000\u0002\u0001\u0003\u0003\u0002\u0004\u0004\u0005\u0004\u0003\u0000\u0002\u0003\u0001\u0000\u0001\u0002\u0011\u0000\u0003!\u0004\u00121AQ\u0005\u0013aq\"\ufffd\ufffd\ufffd\u00062\ufffd\ufffd\ufffd\u0014#\ufffd\ufffdBR\ufffd$3\u0007\u0015bC\ufffd\ufffd\u0000\u0018\u0001\u0001\u0001\u0001\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0002\u0003\u0004\ufffd\ufffd\u0000,\u0011\u0001\u0001\u0001\u0000\u0002\u0002\u0001\u0003\u0003\u0003\u0004\u0003\u0001\u0000\u0000\u0000\u0000\u0001\u0011\u0002!1A\u0012\u0003Qa\"q\ufffd\ufffd\ufffd\ufffd\u00132\ufffd\ufffdB\ufffd\ufffd\ufffd\ufffd\ufffd\u0000 \u0003\u0001\u0000\u0002\u0011\u0003\u0011\u0000?\u0000\ufffd\ufffd=\ufffd\ufffd\ufffd\u001b\ufffdC\u0006+\ufffd \ufffdg\ufffd\ufffdoI\ufffdx\ufffd\ufffd\ufffdK\ufffd+n\u007f\ufffd\ufffdb\t\ufffd\ufffd3 \ufffd\ufffd[N\ufffd \ufffd \u0013\ufffd\ufffdI",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:30.627430"
+  },
+  {
+    "name": "A Motivation for Quantum Computing || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "particles"
+    ],
+    "mechanisms": [
+      "pattern"
+    ],
+    "paper_title": "A Motivation for Quantum Computing || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2014/12/08/a-motivation-for-quantum-computing/",
+    "abstract": "A Motivation for Quantum Computing || Math \u2229 Programming A Motivation for Quantum Computing#experiments #mathematics #physics #quantum computing #quantum mechanics #unitary matrices\u00a02014-12-08This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Quantum mechanics is one of the leading scientific theories describing the rules that govern the universe. It\u2019s discovery and formulation was one of the most important revolut",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:30.851188"
+  },
+  {
+    "name": "Markov Chain Monte Carlo Without all the Bullshit || Math \u2229 Programming",
+    "domain": "computer science",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "optimization",
+      "selection"
+    ],
+    "paper_title": "Markov Chain Monte Carlo Without all the Bullshit || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit",
+    "abstract": "Markov Chain Monte Carlo Without all the Bullshit || Math \u2229 Programming Markov Chain Monte Carlo Without all the Bullshit#markov chain #mathematics #MCMC #monte carlo #random walk\u00a02015-04-06This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.I have a little secret: I don\u2019t like the terminology, notation, and style of writing in statistics. I find it unnecessarily complicated. This shows up when trying to read about ",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:31.132932"
+  },
+  {
+    "name": "Seam Carving for Content-Aware Image Scaling || Math \u2229 Programming",
+    "domain": "mathematics",
+    "type": [
+      "network"
+    ],
+    "mechanisms": [
+      "pattern"
+    ],
+    "paper_title": "Seam Carving for Content-Aware Image Scaling || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2013/03/04/seam-carving-for-content-aware-image-scaling",
+    "abstract": "Seam Carving for Content-Aware Image Scaling || Math \u2229 Programming Seam Carving for Content-Aware Image Scaling#calculus #graphics #javascript #mathematics #photoshop #processing #programming #seam carving\u00a02013-03-04This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.The Problem with CroppingEvery programmer or graphic designer with some web development experience can attest to the fact that finding good images that",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:31.403262"
+  },
+  {
+    "name": "Google's Fully Homomorphic Encryption Compiler \u2014 A Primer || Math \u2229 Programming",
+    "domain": "biology",
+    "type": [
+      "network",
+      "population",
+      "particles"
+    ],
+    "mechanisms": [
+      "optimization",
+      "convergence"
+    ],
+    "paper_title": "Google's Fully Homomorphic Encryption Compiler \u2014 A Primer || Math \u2229 Programming",
+    "authors": null,
+    "year": null,
+    "doi": null,
+    "url": "https://www.jeremykun.com/2023/02/13/googles-fully-homomorphic-encryption-compiler-a-primer/",
+    "abstract": "Google's Fully Homomorphic Encryption Compiler \u2014 A Primer || Math \u2229 Programming Google's Fully Homomorphic Encryption Compiler \u2014 A Primer2023-02-13This article was ported from my old Wordpress blog here, If you see any issues with the rendering or layout, please send me an email.Back in May of 2022 I transferred teams at Google to work on Fully Homomorphic Encryption (newsletter announcement). Since then I\u2019ve been working on a variety of projects in the space, including being the primary maintai",
+    "added_by": "paper_extraction",
+    "added_date": "2026-03-19T00:59:31.669120"
   }
 ]

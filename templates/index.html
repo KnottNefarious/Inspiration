@@ -323,16 +323,32 @@ Or enter keywords to search academic databases.
 <option value="20" selected>20 pages (Recommended)</option>
 <option value="50">50 pages (Deep)</option>
 <option value="100">100 pages (Very Deep)</option>
+<option value="unlimited">♾️ Unlimited (Crawl entire site)</option>
 </select>
 
 <p style="color:#9ca3af; font-size:14px; margin-top:10px;">
 ⚠️ <strong>Warning:</strong> This will visit multiple pages on the site.<br>
-Higher page counts take longer (0.5 sec per page + processing).<br>
-💡 Start with 20 pages, then increase if needed.
+<strong>Unlimited:</strong> Will crawl until no more links found (could be hundreds of pages!).<br>
+💡 Start with 20 pages, then try unlimited if needed.
 </p>
 
 <button class="learn" onclick="crawlWebsite()">🕷️ Start Crawling</button>
 <button class="clear" onclick="clearCrawlForm()">🗑️ Clear</button>
+
+<!-- Live Progress Display -->
+<div id="crawlProgress" style="display:none; background:#1a1d24; padding:15px; border-radius:6px; margin:15px 0;">
+<h4>📊 Live Progress</h4>
+<p><strong>Status:</strong> <span id="crawlStatus">Starting...</span></p>
+<p><strong>Current Page:</strong> <span id="crawlCurrentPage">0</span> / <span id="crawlMaxPagesDisplay">0</span></p>
+<p><strong>Current URL:</strong> <span id="crawlCurrentUrl" style="font-size:12px; color:#9ca3af;">-</span></p>
+<p><strong>Systems Found:</strong> <span id="crawlSystemsFound">0</span></p>
+<p><strong>Pages Remaining:</strong> <span id="crawlPagesRemaining">0</span></p>
+<div id="crawlErrors" style="display:none; margin-top:10px;">
+<p><strong>Errors Encountered:</strong></p>
+<p style="color:#9ca3af; font-size:13px; margin-left:20px;" id="crawlErrorDetails"></p>
+</div>
+<div id="crawlSystemsList" style="margin-top:15px; max-height:200px; overflow-y:auto;"></div>
+</div>
 
 <div id="crawlResult"></div>
 </div>
@@ -632,7 +648,7 @@ function clearCrawlForm() {
     document.getElementById('crawlResult').innerHTML = '';
 }
 
-// Crawl entire website
+// Crawl entire website with live progress
 function crawlWebsite() {
     const seedUrl = document.getElementById('crawlSeedUrl').value.trim();
     const maxPages = document.getElementById('crawlMaxPages').value;
@@ -642,115 +658,149 @@ function crawlWebsite() {
         return;
     }
 
-    // Validate URL
     if (!seedUrl.startsWith('http://') && !seedUrl.startsWith('https://')) {
         alert('Please enter a valid URL starting with http:// or https://');
         return;
     }
 
+    // Show progress section
+    const progressDiv = document.getElementById('crawlProgress');
     const resultDiv = document.getElementById('crawlResult');
-    resultDiv.innerHTML = `<p>⏳ Starting website crawl...</p>
-        <p style="color:#9ca3af;">Crawling up to ${maxPages} pages from ${seedUrl}</p>
-        <p style="color:#9ca3af;">This may take ${Math.ceil(maxPages * 0.5 / 60)} to ${Math.ceil(maxPages * 2 / 60)} minutes...</p>`;
 
+    progressDiv.style.display = 'block';
+    resultDiv.innerHTML = '';
+
+    // Reset progress display
+    document.getElementById('crawlStatus').textContent = 'Initializing...';
+    document.getElementById('crawlCurrentPage').textContent = '0';
+    document.getElementById('crawlMaxPagesDisplay').textContent = maxPages === 'unlimited' ? '∞' : maxPages;
+    document.getElementById('crawlCurrentUrl').textContent = '-';
+    document.getElementById('crawlSystemsFound').textContent = '0';
+    document.getElementById('crawlPagesRemaining').textContent = '0';
+    document.getElementById('crawlErrors').style.display = 'none';
+    document.getElementById('crawlSystemsList').innerHTML = '';
+
+    // Create EventSource for SSE
     const formData = new FormData();
     formData.append('seed_url', seedUrl);
     formData.append('max_pages', maxPages);
 
-    fetch('/crawl_website', {
+    // Convert FormData to URL parameters
+    const params = new URLSearchParams(formData).toString();
+    const eventSource = new EventSource(`/crawl_website_stream?${params}`);
+
+    // Actually we need to use POST, so let's use fetch with streaming instead
+    fetch('/crawl_website_stream', {
         method: 'POST',
         body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            let html = `<div class="result-box">`;
-            html += `<h3 class="success">✓ Website Crawled Successfully!</h3>`;
+    }).then(response => {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
 
-            // Stats
-            html += `<div style="background:#1a1d24; padding:15px; border-radius:6px; margin:15px 0;">`;
-            html += `<h4>📊 Crawl Statistics</h4>`;
-            html += `<p><strong>Pages Attempted:</strong> ${data.pages_crawled}</p>`;
-            html += `<p><strong>Pages Successful:</strong> ${data.pages_successful}</p>`;
+        function readStream() {
+            reader.read().then(({done, value}) => {
+                if (done) {
+                    progressDiv.style.display = 'none';
+                    return;
+                }
 
-            if (data.pages_errored > 0) {
-                html += `<p><strong>Pages with Errors:</strong> ${data.pages_errored}</p>`;
-                html += `<p style="color:#9ca3af; font-size:13px; margin-left:20px;">`;
-                if (data.errors['404'] > 0) html += `404 Not Found: ${data.errors['404']}<br>`;
-                if (data.errors['403'] > 0) html += `403 Forbidden: ${data.errors['403']}<br>`;
-                if (data.errors['500'] > 0) html += `500 Server Error: ${data.errors['500']}<br>`;
-                if (data.errors['timeout'] > 0) html += `Timeout: ${data.errors['timeout']}<br>`;
-                if (data.errors['connection'] > 0) html += `Connection Error: ${data.errors['connection']}<br>`;
-                if (data.errors['other'] > 0) html += `Other Errors: ${data.errors['other']}<br>`;
-                html += `</p>`;
-            }
+                const chunk = decoder.decode(value);
+                const lines = chunk.split('\n');
 
-            html += `<p><strong>New Systems Found:</strong> ${data.systems_found}</p>`;
+                lines.forEach(line => {
+                    if (line.startsWith('data: ')) {
+                        try {
+                            const data = JSON.parse(line.substring(6));
 
-            if (data.systems_skipped_duplicates > 0) {
-                html += `<p style="color:#f59e0b;"><strong>⚠️ Duplicates Skipped:</strong> ${data.systems_skipped_duplicates}</p>`;
-                html += `<p style="color:#9ca3af; font-size:13px;">Systems with matching names were already in database and were not added again.</p>`;
-            }
-            html += `</div>`;
+                            if (data.status === 'starting') {
+                                document.getElementById('crawlStatus').textContent = 'Starting crawl...';
+                            }
+                            else if (data.status === 'crawling') {
+                                document.getElementById('crawlStatus').textContent = 'Crawling...';
+                                document.getElementById('crawlCurrentPage').textContent = data.current_page;
+                                document.getElementById('crawlCurrentUrl').textContent = data.url;
+                                document.getElementById('crawlSystemsFound').textContent = data.systems_found;
+                                document.getElementById('crawlPagesRemaining').textContent = data.pages_remaining;
 
-            if (data.systems_found > 0) {
-                html += `<h4>Extracted Systems:</h4>`;
+                                // Show errors if any
+                                const totalErrors = Object.values(data.errors).reduce((a, b) => a + b, 0);
+                                if (totalErrors > 0) {
+                                    document.getElementById('crawlErrors').style.display = 'block';
+                                    let errorText = '';
+                                    if (data.errors['404'] > 0) errorText += `404: ${data.errors['404']} `;
+                                    if (data.errors['403'] > 0) errorText += `403: ${data.errors['403']} `;
+                                    if (data.errors['500'] > 0) errorText += `500: ${data.errors['500']} `;
+                                    if (data.errors['timeout'] > 0) errorText += `Timeout: ${data.errors['timeout']} `;
+                                    if (data.errors['connection'] > 0) errorText += `Connection: ${data.errors['connection']} `;
+                                    document.getElementById('crawlErrorDetails').textContent = errorText;
+                                }
+                            }
+                            else if (data.status === 'system_found') {
+                                // Add to live systems list
+                                const systemsList = document.getElementById('crawlSystemsList');
+                                const systemDiv = document.createElement('div');
+                                systemDiv.style.cssText = 'padding:5px; margin:5px 0; background:#111827; border-radius:4px; font-size:13px;';
+                                systemDiv.innerHTML = `✓ <strong>${data.system_name}</strong> <span style="color:#9ca3af;">(${data.domain})</span>`;
+                                systemsList.appendChild(systemDiv);
+                                // Auto-scroll to bottom
+                                systemsList.scrollTop = systemsList.scrollHeight;
+                            }
+                            else if (data.status === 'complete') {
+                                document.getElementById('crawlStatus').textContent = 'Complete!';
 
-                // Group by domain
-                const byDomain = {};
-                data.systems.forEach(sys => {
-                    if (!byDomain[sys.domain]) {
-                        byDomain[sys.domain] = [];
+                                // Hide progress, show results
+                                setTimeout(() => {
+                                    progressDiv.style.display = 'none';
+
+                                    // Display final results (same as before)
+                                    let html = `<div class="result-box">`;
+                                    html += `<h3 class="success">✓ Website Crawled Successfully!</h3>`;
+
+                                    html += `<div style="background:#1a1d24; padding:15px; border-radius:6px; margin:15px 0;">`;
+                                    html += `<h4>📊 Crawl Statistics</h4>`;
+                                    html += `<p><strong>Pages Attempted:</strong> ${data.pages_crawled}</p>`;
+                                    html += `<p><strong>Pages Successful:</strong> ${data.pages_successful}</p>`;
+
+                                    if (data.pages_errored > 0) {
+                                        html += `<p><strong>Pages with Errors:</strong> ${data.pages_errored}</p>`;
+                                        html += `<p style="color:#9ca3af; font-size:13px; margin-left:20px;">`;
+                                        if (data.errors['404'] > 0) html += `404 Not Found: ${data.errors['404']}<br>`;
+                                        if (data.errors['403'] > 0) html += `403 Forbidden: ${data.errors['403']}<br>`;
+                                        if (data.errors['500'] > 0) html += `500 Server Error: ${data.errors['500']}<br>`;
+                                        if (data.errors['timeout'] > 0) html += `Timeout: ${data.errors['timeout']}<br>`;
+                                        if (data.errors['connection'] > 0) html += `Connection Error: ${data.errors['connection']}<br>`;
+                                        if (data.errors['other'] > 0) html += `Other Errors: ${data.errors['other']}<br>`;
+                                        html += `</p>`;
+                                    }
+
+                                    html += `<p><strong>New Systems Found:</strong> ${data.systems_found}</p>`;
+                                    html += `</div>`;
+
+                                    if (data.systems_found > 0) {
+                                        html += `<p class="success">✓ All systems added to database!</p>`;
+                                    }
+
+                                    html += `</div>`;
+                                    resultDiv.innerHTML = html;
+                                }, 1000);
+                            }
+                            else if (data.error) {
+                                progressDiv.style.display = 'none';
+                                resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Error: ${data.error}</p></div>`;
+                            }
+                        } catch (e) {
+                            // Skip malformed JSON
+                        }
                     }
-                    byDomain[sys.domain].push(sys);
                 });
 
-                // Display grouped
-                Object.keys(byDomain).sort().forEach(domain => {
-                    html += `<h5 style="color:#3b82f6; margin-top:15px;">${domain} (${byDomain[domain].length})</h5>`;
-
-                    byDomain[domain].forEach(sys => {
-                        html += `<div style="margin:10px 0; padding:10px; background:#1a1d24; border-radius:6px;">`;
-                        html += `<strong>${sys.name}</strong><br>`;
-                        html += `<span style="color:#9ca3af; font-size:13px;">Mechanisms: ${sys.mechanisms.join(', ')}</span><br>`;
-                        html += `<span style="color:#9ca3af; font-size:12px;">${sys.citation}</span>`;
-                        html += `</div>`;
-                    });
-                });
-
-                html += `<p class="success" style="margin-top:20px;">✓ All new systems added to database!</p>`;
-            } else if (data.pages_successful > 0) {
-                html += `<p class="warning">⚠️ No new systems found. Pages were crawled but either:</p>`;
-                html += `<ul style="color:#9ca3af;">`;
-                html += `<li>No extractable content on pages</li>`;
-                html += `<li>All systems already exist in database (duplicates)</li>`;
-                html += `<li>Try increasing max pages or try a different site</li>`;
-                html += `</ul>`;
-            } else {
-                html += `<p class="error">✗ All pages encountered errors. Site may be:</p>`;
-                html += `<ul style="color:#9ca3af;">`;
-                html += `<li>Blocking web scraping</li>`;
-                html += `<li>Temporarily down</li>`;
-                html += `<li>Requiring authentication</li>`;
-                html += `</ul>`;
-            }
-
-            html += `</div>`;
-            resultDiv.innerHTML = html;
-        } else {
-            let html = `<div class="result-box">`;
-            html += `<p class="error">✗ Error: ${data.error}</p>`;
-
-            if (data.error.includes('dependencies')) {
-                html += `<p class="warning">⚠️ Install missing packages:</p>`;
-                html += `<code>pip install requests beautifulsoup4</code>`;
-            }
-
-            html += `</div>`;
-            resultDiv.innerHTML = html;
+                readStream();
+            });
         }
-    })
-    .catch(error => {
+
+        readStream();
+    }).catch(error => {
+        progressDiv.style.display = 'none';
         resultDiv.innerHTML = `<div class="result-box"><p class="error">✗ Network error: ${error}</p></div>`;
     });
 }

@@ -504,4 +504,196 @@ def crawl_website():
         })
 
 
+@app.route("/crawl_website_stream", methods=["POST"])
+def crawl_website_stream():
+    """
+    Crawl website with live progress updates via Server-Sent Events (SSE)
+    """
+
+    # Get parameters BEFORE entering generator (in request context!)
+    seed_url = request.form.get("seed_url", "").strip()
+    max_pages_str = request.form.get("max_pages", "20")
+
+    def generate(seed_url, max_pages_str):
+        try:
+            import requests
+            from bs4 import BeautifulSoup
+            from urllib.parse import urljoin, urlparse
+            import time
+            import json
+
+            # Handle "unlimited" option
+            if max_pages_str == "unlimited":
+                max_pages = float('inf')  # No limit!
+            else:
+                max_pages = int(max_pages_str)
+
+            if not seed_url:
+                yield f"data: {json.dumps({'error': 'Please provide a seed URL'})}\n\n"
+                return
+
+            # Send initial status
+            yield f"data: {json.dumps({'status': 'starting', 'seed_url': seed_url, 'max_pages': max_pages_str})}\n\n"
+
+            parsed_seed = urlparse(seed_url)
+            seed_domain = parsed_seed.netloc
+
+            visited = set()
+            to_visit = {seed_url}
+            all_systems = []
+            pages_processed = 0
+
+            errors = {
+                '404': 0,
+                '403': 0,
+                '500': 0,
+                'timeout': 0,
+                'connection': 0,
+                'other': 0
+            }
+
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            }
+
+            from system_database_v2 import load_systems
+            existing_systems = load_systems()
+            existing_names = {s.name.lower().strip() for s in existing_systems}
+
+            while to_visit and pages_processed < max_pages:
+                current_url = to_visit.pop()
+
+                if current_url in visited:
+                    continue
+
+                visited.add(current_url)
+                pages_processed += 1
+
+                # Send progress update
+                progress = {
+                    'status': 'crawling',
+                    'current_page': pages_processed,
+                    'max_pages': max_pages_str,
+                    'url': current_url,
+                    'systems_found': len(all_systems),
+                    'pages_remaining': len(to_visit),
+                    'errors': errors
+                }
+                yield f"data: {json.dumps(progress)}\n\n"
+
+                try:
+                    response = requests.get(current_url, headers=headers, timeout=10)
+
+                    if response.status_code == 404:
+                        errors['404'] += 1
+                        continue
+                    elif response.status_code == 403:
+                        errors['403'] += 1
+                        continue
+                    elif response.status_code >= 500:
+                        errors['500'] += 1
+                        continue
+
+                    response.raise_for_status()
+
+                    soup = BeautifulSoup(response.text, 'html.parser')
+
+                    title = soup.find('title')
+                    title_text = title.get_text().strip() if title else f"Page {pages_processed}"
+
+                    for script in soup(["script", "style", "nav", "footer", "header"]):
+                        script.decompose()
+
+                    text = soup.get_text()
+                    lines = (line.strip() for line in text.splitlines())
+                    chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+                    text = ' '.join(chunk for chunk in chunks if chunk)
+                    text = text[:5000]
+
+                    if len(text) >= 100:
+                        page_systems = extract_systems_from_paper(
+                            text=text,
+                            title=title_text,
+                            url=current_url
+                        )
+
+                        if page_systems:
+                            for sys in page_systems:
+                                sys_name_lower = sys.name.lower().strip()
+                                if sys_name_lower not in existing_names:
+                                    all_systems.append(sys)
+                                    existing_names.add(sys_name_lower)
+
+                                    # Send update about new system found
+                                    yield f"data: {json.dumps({{'status': 'system_found', 'system_name': sys.name, 'domain': sys.domain}})}\n\n"
+
+                    for link in soup.find_all('a', href=True):
+                        href = link['href']
+                        absolute_url = urljoin(current_url, href)
+                        parsed_url = urlparse(absolute_url)
+
+                        if parsed_url.netloc == seed_domain:
+                            clean_url = absolute_url.split('#')[0]
+                            if clean_url not in visited:
+                                to_visit.add(clean_url)
+
+                    time.sleep(0.5)
+
+                except requests.exceptions.Timeout:
+                    errors['timeout'] += 1
+                    continue
+                except requests.exceptions.ConnectionError:
+                    errors['connection'] += 1
+                    continue
+                except requests.exceptions.HTTPError as e:
+                    if '404' in str(e):
+                        errors['404'] += 1
+                    elif '403' in str(e):
+                        errors['403'] += 1
+                    elif '500' in str(e) or '502' in str(e) or '503' in str(e):
+                        errors['500'] += 1
+                    else:
+                        errors['other'] += 1
+                    continue
+                except Exception as e:
+                    errors['other'] += 1
+                    continue
+
+            # Add systems to database
+            new_count = 0
+            if all_systems:
+                add_systems_batch(all_systems)
+                new_count = len(all_systems)
+
+            # Send completion
+            total_errors = sum(errors.values())
+
+            results = []
+            for sys in all_systems:
+                results.append({
+                    'name': sys.name,
+                    'domain': sys.domain,
+                    'mechanisms': sys.mechanisms,
+                    'citation': sys.get_citation_string()
+                })
+
+            final_data = {
+                'status': 'complete',
+                'pages_crawled': pages_processed,
+                'pages_successful': pages_processed - total_errors,
+                'pages_errored': total_errors,
+                'errors': errors,
+                'systems_found': new_count,
+                'systems': results
+            }
+
+            yield f"data: {json.dumps(final_data)}\n\n"
+
+        except Exception as e:
+            yield f"data: {json.dumps({'status': 'error', 'error': str(e)})}\n\n"
+
+    # Call generator with parameters
+    return app.response_class(generate(seed_url, max_pages_str), mimetype='text/event-stream')
+
+
 app.run(host="0.0.0.0", port=5000)
