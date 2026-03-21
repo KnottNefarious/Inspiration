@@ -208,6 +208,51 @@ class NeuralODELearner:
 
 
 # ========================================
+# FIT QUALITY ASSESSMENT
+# ========================================
+
+def assess_fit_quality(r2_score: float) -> Dict:
+    """
+    Assess the quality of the fit based on R² score
+
+    Args:
+        r2_score: R² score (0-1)
+
+    Returns:
+        Dict with: status, quality, message, recommendation
+    """
+
+    if r2_score >= 0.95:
+        return {
+            'status': 'excellent',
+            'quality': 'Excellent fit',
+            'message': '✓ This equation accurately models the data.',
+            'recommendation': 'Safe to use for predictions and analysis.'
+        }
+    elif r2_score >= 0.80:
+        return {
+            'status': 'good',
+            'quality': 'Good fit',
+            'message': '✓ This equation models the data well.',
+            'recommendation': 'Generally reliable for predictions.'
+        }
+    elif r2_score >= 0.50:
+        return {
+            'status': 'moderate',
+            'quality': 'Moderate fit',
+            'message': '⚠️ This equation partially captures the pattern.',
+            'recommendation': 'Use with caution. Consider collecting more data or trying different approaches.'
+        }
+    else:
+        return {
+            'status': 'poor',
+            'quality': 'Poor fit',
+            'message': '✗ This equation does not fit the data well.',
+            'recommendation': 'The data may be non-polynomial (periodic, chaotic, or exponential). Consider different modeling approaches.'
+        }
+
+
+# ========================================
 # ODE LEARNER FACTORY
 # ========================================
 
@@ -222,7 +267,7 @@ def learn_ode_from_data(time: np.ndarray, data: np.ndarray,
         method: "polynomial" (simple, no deps) or "neural" (needs PyTorch)
 
     Returns:
-        Dict with: equation, coefficients, score, predictions
+        Dict with: equation, coefficients, score, predictions, fit_quality
     """
 
     if method == "polynomial":
@@ -231,13 +276,17 @@ def learn_ode_from_data(time: np.ndarray, data: np.ndarray,
         predictions = learner.predict(time, data[0])
         score = learner.score(time, data)
 
+        # Assess fit quality
+        fit_quality = assess_fit_quality(score)
+
         return {
             'method': 'polynomial',
             'equation': equation,
             'coefficients': coefficients.tolist(),
             'score': score,
             'predictions': predictions.tolist(),
-            'learner': learner
+            'learner': learner,
+            'fit_quality': fit_quality
         }
 
     elif method == "neural":
